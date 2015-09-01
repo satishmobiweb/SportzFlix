@@ -7,6 +7,9 @@
 
 body {
   padding: 0;
+  background-color: #333333;
+  border-color: #333333;
+
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -19,7 +22,7 @@ body {
 
 /* Custom page header */
 .header {
-  border-bottom: 1px solid #e5e5e5;
+
   margin-bottom: 10px;
 }
 /* Make the masthead heading the same height as the navigation */
@@ -80,4 +83,108 @@ body {
   .jumbotron {
     border-bottom: 0;
   }
+}
+
+
+/* menu stuff */
+.main-header{
+    background-color: #212121;
+    border-color:  #212121;
+    padding-bottom: 5px;
+
+}
+
+.main-navbar{
+    position:relative;
+    top: 25px;
+
+}
+
+.custom-navbar-brand{
+    min-height: 20px;
+
+}
+
+.my-account-position{
+    position:relative;
+    top: 11px;
+
+}
+
+.header-link {
+    font-family: pt-sans, sans-serif;;
+    font-size: 16px;
+    color: #ffffff;
+    font-weight: 700;
+
+}
+
+.header-link:hover{
+    color: #ffffff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn-header:hover, .btn-header:focus, .btn-header:active{
+    background-color:#212121;
+    border-color: #212121;
+}
+
+/* video navigation page stuff*/
+
+.video-browse-container{
+    margin-left: 20px;
+}
+
+.video-browse-headers{
+color: rgb(134, 203, 43);
+
+}
+
+.video-block {
+    height: 150px;
+
+    background-color: white;
+}
+
+/* slider controlls */
+.left, .right {
+    position: relative;
+    color: white;
+    font-size: 64px;
+    top:35px;
+    font-family: economica, sans-serif;
+    font-weight: 400;
+    line-height: 77px;
+
+    cursor: pointer;
+    z-index: 1;
+}
+.left {
+    left: 0;
+    width:15px;
+    margin-right: 35px;
+}
+.right {
+    right: 0;
+    width:15px;
+}
+
+.video-item{
+}
+
+
+/* colors */
+.puke-green{
+    color: #86CB2B;
+}
+
+.bg-color-header-brown{
+    background-color:#212121;
+    border-color:  #212121;
+}
+
+/* bootstrap stuff */
+.modal-backdrop {
+   background-color: black;
 }
