@@ -1,0 +1,29 @@
+<div class="container-fluid">
+
+
+    <div class="row" ng-repeat="channel in channelList | orderBy:'title'">
+    <h2 class="video-browse-headers">{{channel.title}}</h2>
+
+        <div owl-carousel="channel.videos" >
+        <div class="item video-item">
+            <div ng-click="playVideo(item.media_id)">
+                <img class="img-responsive" src="{{item.thumbnails[1].url}}">
+            <p class="puke-green" >{{item.title}}</p>
+
+            </div>
+
+
+
+        </div>
+    </div>
+
+
+
+
+</div>
+
+
+
+
+</div>
+
