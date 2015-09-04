@@ -9,12 +9,17 @@
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/bootstrap-social/bootstrap-social.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
+
     <link rel="stylesheet" href="styles/owl.carousel.css">
+
     <!-- endbuild -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paymentfont/1.1.2/css/paymentfont.css">
 </head>
 <body ng-app="sportzflixApp">
 <!--[if lte IE 8]>
@@ -42,14 +47,15 @@
             </div>
 
             <!--start nav menu items-->
-            <div class="collapse navbar-collapse pull-right " id="js-navbar-collapse">
+            <div class="collapse navbar-collapse collapse " id="js-navbar-collapse">
 
-                <div class="main-navbar">
-                <ul class="nav navbar-nav">
+                <div ng-show="user.authenticated" class="main-navbar">
+                <ul class="nav navbar-nav navbar-left pull-right">
 
                     <li>
 
                     <div class="my-account-position">
+
                     <a class="header-link">MY ACCOUNT</a>
                     </div>
 
@@ -57,16 +63,15 @@
 
                 <!--start dropdown menu-->
                 <li>
-                <div class="dropdown">
-                    <button class="btn btn-default btn-lg dropdown-toggle bg-color-header-brown btn-header" type="button" id="dropdownMenu1"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                         <span class="glyphicon glyphicon-menu-hamburger puke-green" aria-hidden="true"></span>
+                <div class="dropdown" style="outline:none;">
+                    <button class="btn btn-default btn-lg  bg-color-header-brown btn-header" type="button" id="dropdownMenu1"
+                            data-toggle="dropdown" >
+                         <span class="glyphicon glyphicon-menu-hamburger puke-green"></span>
                     </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li><a href="#">Separated link</a></li>
+                    <ul class="dropdown-menu  pull-right" aria-labelledby="dropdownMenu1">
+
+                        <li ng-show="user.authenticated"> <a href="#" ua-logout>Log Out</a></li>
+
                     </ul>
                 </div>
                 </li>
@@ -106,7 +111,7 @@
     ga('create', 'UA-XXXXX-X');
     ga('send', 'pageview');
 </script>
-<script src="http://video.limelight.com/player/embed.js"></script>
+
 
 
 <!-- build:js(.) scripts/vendor.js -->
@@ -116,6 +121,7 @@
 <script src="bower_components/angular-animate/angular-animate.js"></script>
 <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+<script src="bower_components/angular-payments/lib/angular-payments.js"></script>
 <script src="bower_components/angular-resource/angular-resource.js"></script>
 <script src="bower_components/angular-route/angular-route.js"></script>
 <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
@@ -136,7 +142,16 @@
 <script src="http://video.limelight.com/player/embed.js"></script>
 <script src="scripts/controllers/modalplayer.js"></script>
 <script src="scripts/directives/limelightplayer.js"></script>
+<script src="scripts/controllers/signup.js"></script>
+<script src="scripts/controllers/reset-password.js"></script>
+<script src="scripts/controllers/addpayment.js"></script>
+<script src="scripts/services/paymentmethodservice.js"></script>
 <!-- endbuild -->
+<script src="http://video.limelight.com/player/embed.js"></script>
+<script src="https://app.userapp.io/js/userapp.client.js"></script>
+<script src="https://app.userapp.io/js/angularjs.userapp.js"></script>
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+
 
 
 

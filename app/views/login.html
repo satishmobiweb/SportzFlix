@@ -1,0 +1,26 @@
+<div class="container signin-container">
+
+<form ua-login class="form-signin">
+    <h2 class="form-signin-heading  puke-green">Please sign in</h2>
+    <label for="login"  class="sr-only" >Username</label>
+	<input name="login" id="login" class="form-control" placeholder="Username" required autofocus><br>
+    <label for="password" class="sr-only">Password</label>
+	<input name="password" id="password" placeholder="Password" class="form-control" type="password" required autofocus><br>
+    <div class="checkbox form-control">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div>
+	<button type="submit" class="btn-block btn btn-lg">Log in</button>
+     <a href=""  class="btn btn-block btn-social btn-facebook" ua-oauth-link="facebook">
+            <i class="fa fa-facebook-square"></i>Log in with Facebook
+        </a>
+
+	<p ng-show="loading"><img src="https://app.userapp.io/img/ajax-loader-transparent.gif"></p>
+	<p ng-show="error">{{ error.message }}</p>
+    <p>New to Sportzflix? <a href="#/signup">Sign up</a></p>
+    <p><a href="#/reset-password">Forgot Your password?</a></p>
+</form>
+
+
+    </div>
