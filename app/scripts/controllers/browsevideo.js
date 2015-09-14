@@ -8,7 +8,15 @@
  * Controller of the sportzflixApp
  */
 angular.module('sportzflixApp')
-  .controller('BrowsevideoCtrl', function (limelightService, $scope, $modal) {
+  .controller('BrowsevideoCtrl', function (limelightService, $scope, $modal, user, $location) {
+
+        //check auth and redirect
+        if (!user.hasPermission('access')){
+            console.log('goaway')
+            $location.path('/addpayment')
+        }
+
+
         $scope.currentVideo = ''
         $scope.channelList = []
 
