@@ -334,3 +334,31 @@ outline: none !important;
 }
 
 
+.puke-button{
+    background-color: #86CB2B;
+    color: white;
+}
+
+.profile {
+        color: #F2F2F2;
+    line-height: 19px;
+    text-align: left;
+    font-size: 16px;
+    font-family: pt-sans, sans-serif;
+    font-weight: 400;
+
+}
+
+.profile-row {
+    border-bottom: solid thin;
+    border-bottom-width: 1px;
+    border-bottom-color: #86CB2B;
+    padding-bottom: 1px !important;
+    margin-bottom: 10px;
+
+}
+
+.profile-links{
+    color: #FBB03B !important;
+    text-decoration: none;
+}

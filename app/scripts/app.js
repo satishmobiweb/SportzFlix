@@ -20,7 +20,13 @@ angular
     'ui.bootstrap',
     'UserApp',
     'angularPayments',
-    'braintree-angular'
+    'braintree-angular',
+    'cgBusy',
+    'angularMoment',
+    'formly',
+      'formlyBootstrap'
+
+
   ])
 
     .constant('API_URL', 'http://127.0.0.1:8000/')
@@ -81,6 +87,11 @@ angular
         controller: 'AddpaymentCtrl',
         controllerAs: 'addpayment',
         public: true
+      })
+      .when('/profile', {
+        templateUrl: 'views/profile.html',
+        controller: 'ProfileCtrl',
+        controllerAs: 'profile'
       })
       .otherwise({
         redirectTo: '/browsevideo',

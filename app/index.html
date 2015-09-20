@@ -8,6 +8,7 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/angular-busy/dist/angular-busy.css" />
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="bower_components/bootstrap-social/bootstrap-social.css" />
     <!-- endbower -->
@@ -16,8 +17,8 @@
     <link rel="stylesheet" href="styles/main.css">
 
     <link rel="stylesheet" href="styles/owl.carousel.css">
-
     <!-- endbuild -->
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paymentfont/1.1.2/css/paymentfont.css">
 </head>
@@ -121,15 +122,22 @@
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/angular-animate/angular-animate.js"></script>
 <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="bower_components/angular-busy/dist/angular-busy.js"></script>
 <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+<script src="bower_components/api-check/dist/api-check.js"></script>
+<script src="bower_components/angular-formly/dist/formly.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="bower_components/angular-formly-templates-bootstrap/dist/angular-formly-templates-bootstrap.js"></script>
+<script src="bower_components/moment/moment.js"></script>
+<script src="bower_components/angular-moment/angular-moment.js"></script>
 <script src="bower_components/angular-payments/lib/angular-payments.js"></script>
 <script src="bower_components/angular-resource/angular-resource.js"></script>
 <script src="bower_components/angular-route/angular-route.js"></script>
 <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-<script src="bower_components/angular-spinners/dist/angular-spinners.min.js"></script>
 <script src="bower_components/angular-touch/angular-touch.js"></script>
-<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
 <script src="bower_components/braintree-angular/dist/braintree-angular.js"></script>
+<script src="bower_components/velocity/velocity.js"></script>
+<script src="bower_components/ng-morphing-modal/build/js/ngMorphingModal.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 
@@ -149,6 +157,16 @@
 <script src="scripts/controllers/reset-password.js"></script>
 <script src="scripts/controllers/addpayment.js"></script>
 <script src="scripts/services/paymentmethodservice.js"></script>
+<script src="scripts/controllers/profile.js"></script>
+<script src="scripts/services/profilemanagement.js"></script>
+
+<script src="scripts/controllers/changeemail.js"></script>
+<script src="scripts/services/profileupdateservice.js"></script>
+<script src="scripts/controllers/changepassword.js"></script>
+<script src="scripts/controllers/emailpreferences.js"></script>
+<script src="scripts/controllers/updatebillingmethod.js"></script>
+<script src="scripts/controllers/cancelmembership.js"></script>
+<script src="scripts/controllers/billinghistory.js"></script>
 <!-- endbuild -->
 <script src="http://video.limelight.com/player/embed.js"></script>
 <script src="https://app.userapp.io/js/userapp.client.js"></script>
