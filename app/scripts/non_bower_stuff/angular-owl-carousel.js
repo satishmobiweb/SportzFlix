@@ -106,6 +106,19 @@
 					}
 				}
 
+
+
+
+			//options.items = 5;
+				options.autoWidth = true;
+				options.nav = false;
+
+    options.navText = [
+      "<i class='icon-chevron-left icon-white'><</i>",
+      "<i class='icon-chevron-right icon-white'>></i>"
+      ]
+
+
 				scope.$watchCollection(propertyName, function (newItems, oldItems) {
 
 					if (owlCarousel) {

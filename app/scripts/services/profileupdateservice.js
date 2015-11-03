@@ -56,5 +56,15 @@ angular.module('sportzflixApp')
 
     }
 
+    this.getBillingHistory = function(userapp_id){
+
+      var data = {
+        userapp_id: userapp_id
+      }
+
+      return $http.post(API_URL + 'customers/get_billing_history/', data);
+
+    }
+
 
   });

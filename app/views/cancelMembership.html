@@ -1,7 +1,17 @@
 <div ng-controller="CancelmembershipCtrl" cg-busy="cancel">
 
         <div class="modal-header">
-            <h3 class="modal-title puke-green">Cancel Membership</h3>
+            <div class="row">
+
+                <div class="col-sm-9">
+                <h3 class="modal-title puke-green">Cancel Membership</h3>
+            </div>
+            <div class="col-sm-2 pull-right">
+                <a class="close" ng-click="$dismiss()">X</a>
+            </div>
+
+            </div>
+
         </div>
         <div class="modal-body">
 
@@ -21,7 +31,7 @@
         <div class="modal-footer">
             <div ng-hide="cancellation">
             <button class="btn btn-primary" type="button" ng-click="cancelMembership()">Cancel Membership</button>
-            <button class="btn btn-warning" type="button" ng-click="$dismiss()">Cancel</button>
+
             </div>
             <div ng-show="cancellation">
                 <button class="btn btn-primary" type="button" ng-click="$close()">OK</button>

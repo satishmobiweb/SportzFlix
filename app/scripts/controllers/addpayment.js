@@ -73,4 +73,9 @@ $scope.paypalOptions = {
                }
              };
 
+
+
+        $('body').css('background', 'none');
+        $('body').css('background-color', '#333');
+
   });

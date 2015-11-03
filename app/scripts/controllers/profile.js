@@ -10,6 +10,9 @@
 angular.module('sportzflixApp')
   .controller('ProfileCtrl', function ($scope, profilemanagement, user, $modal, $window) {
 
+    $("body").css('background', 'none');
+      $("body").css('background-color', '#212121');
+
     $scope.currentUser = user.current
 
 
@@ -26,6 +29,7 @@ angular.module('sportzflixApp')
            animation: true,
            templateUrl: 'views/changeEmail.html',
            controller: 'ChangeemailCtrl',
+           backdropClass: 'modal-background',
            resolve: {
              user: function () {
                return user.current;
@@ -206,7 +210,6 @@ angular.module('sportzflixApp')
 
 
       }
-
 
 
 

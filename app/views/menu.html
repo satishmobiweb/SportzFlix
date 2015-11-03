@@ -1,0 +1,76 @@
+<!---OLD MENU
+<div class="main-header ">
+
+    <div class="navbar main-header" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+				<button type="button" class="navbar-toggle front-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+
+                </button>
+
+				<a class="navbar-brand" href="/#/"><img class="img-responsive" src="images/sportzflixlogo.png"></a>
+			</div>
+
+
+            <div class="navbar-collapse collapse my-account-position">
+			<ul class="nav navbar-nav navbar-right ">
+				<li><a href="/#/profile" class="header-link">MY ACCOUNT</a></a></li>
+                <li class="hidden-sm hidden-md hidden-lg" ng-show="user.authenticated"> <a href="#" ua-logout>Log Out</a></li>
+                <li class="hidden-xs">
+                <div class="dropdown"  style="outline:none;">
+                    <button class="btn btn-default btn-lg  bg-color-header-brown btn-header" type="button" id="dropdownMenu1"
+                            data-toggle="dropdown" >
+                         <span class="glyphicon glyphicon-menu-hamburger puke-green"></span>
+                    </button>
+                    <ul class="dropdown-menu  pull-right" aria-labelledby="dropdownMenu1">
+
+                        <li ng-show="user.authenticated"> <a class="profile-dropdown-link" href="/#" ua-logout ">Log Out</a></li>
+
+
+                    </ul>
+                </div>
+                </li>
+
+			</ul>
+			</div>
+
+            </div>
+                </div>
+
+
+        </div>
+-->
+<div class="hdSpace">
+    <div class="hdPinTarget">
+        <a class="nflix-logo" href="/#/">
+        <img class="img-responsive" src="images/sportzflixlogo.png">
+        </a>
+        <ul class="netflix-ul pull-right">
+        </ul>
+        <div class="netflix-right-nav">
+            <div class="netflix-nav-element">
+                <div class="profile-drop-down">
+
+                </div>
+            </div>
+            <div class="netflix-nav-element">
+                <div class="dropdown"  style="outline:none;">
+                    <button class="btn btn-block btn-md btn-header" type="button" id="dropdownMenu1"
+                            data-toggle="dropdown" >
+                        <span class="glyphicon glyphicon-user"></span>
+                         <span class="profile-text">Hi {{user.first_name}}</span>
+                        <span class="glyphicon glyphicon-menu-down" style="font-size:12px"></span>
+                    </button>
+                    <ul class="dropdown-menu  pull-right" aria-labelledby="dropdownMenu1">
+                       <li><a href="/#/profile" class="profile-dropdown-link">Profile</a></li>
+                        <li ng-show="user.authenticated"> <a href="/#" class="profile-dropdown-link" ua-logout>Log Out</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -10,7 +10,7 @@
  */
 angular
   .module('sportzflixApp', [
-    'ngAnimate',
+
     'ngCookies',
     'ngResource',
     'ngRoute',
@@ -24,13 +24,17 @@ angular
     'cgBusy',
     'angularMoment',
     'formly',
-      'formlyBootstrap'
+      'formlyBootstrap',
+        'angular-flexslider',
+        'angular-carousel',
+        'slick'
+
 
 
   ])
 
-    .constant('API_URL', 'http://127.0.0.1:8000/')
-    .constant('clientTokenPath', 'http://127.0.0.1:8000/' + 'braintree_token')
+    .constant('API_URL', 'https://calm-falls-3900.herokuapp.com/')
+    .constant('clientTokenPath', 'https://calm-falls-3900.herokuapp.com/' + 'braintree_token')
 
     .config(function($windowProvider, $httpProvider) {
       $windowProvider.$get().Stripe.setPublishableKey('pk_test_b7DNvcW0ILbXaqffYQNo2DWU');
@@ -44,13 +48,23 @@ angular
 })
 
 
+    .constant("limelightAccessKey", 'hEG/dm1MZMV1wOQTw0uMfhbQJyw=')
+    .constant("limelightSecret", "X0jdkailbL62oFocu93ys2LiCv8=")
+
 
  .run(function(user, $location, $http) {
 	user.init({ appId: '55e601b79556a' });
     user.onAccessDenied(function(user, route, stateParams) {
     $location.path('/addpayment');
+      $("body").css('background', 'transparent url("../images/background-u2587-fr.png")  center center no-repeat');
 
+})
+    user.onAuthenticationRequired(function(route, stateParams) {
+    $location.path('/about');
 });
+
+    ;
+
 
 })
 
@@ -65,6 +79,8 @@ angular
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl',
         controllerAs: 'about',
+        public:true,
+          login: true
 
       })
       .when('/browsevideo', {
@@ -75,7 +91,7 @@ angular
       })
 
 
-      .when('/login', {templateUrl: 'views/login.html', login: true})
+      .when('/login', {templateUrl: 'views/login.html',login: true} )
       .when('/signup', {templateUrl: 'views/signup.html', public: true})
 
       .when('/reset-password', {templateUrl: 'views/reset-password.html', public:true})
@@ -92,6 +108,11 @@ angular
         templateUrl: 'views/profile.html',
         controller: 'ProfileCtrl',
         controllerAs: 'profile'
+      })
+      .when('/channel/:channelId', {
+        templateUrl: 'views/channel.html',
+        controller: 'ChannelCtrl',
+        controllerAs: 'channel'
       })
       .otherwise({
         redirectTo: '/browsevideo',

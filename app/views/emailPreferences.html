@@ -1,7 +1,17 @@
 <div ng-controller="EmailpreferencesCtrl">
 
         <div class="modal-header">
-            <h3 class="modal-title puke-green">Email Settings</h3>
+            <div class="row">
+
+                <div class="col-sm-9">
+                <h3 class="modal-title puke-green">Email Setting</h3>
+            </div>
+            <div class="col-sm-2 pull-right">
+                <a class="close" ng-click="$dismiss()">X</a>
+            </div>
+
+            </div>
+
         </div>
         <div class="modal-body">
 
@@ -12,7 +22,7 @@
         </div>
         <div class="modal-footer">
             <button class="btn btn-primary" type="button" ng-click="submitPreferences()">OK</button>
-            <button class="btn btn-warning" type="button" ng-click="$dismiss()">Cancel</button>
+
         </div>
 
 

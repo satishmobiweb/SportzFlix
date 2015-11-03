@@ -325,7 +325,7 @@ module.exports = function (grunt) {
         },
         cwd: '<%= yeoman.app %>',
         src: 'views/{,*/}*.html',
-        dest: '.tmp/templateCache.js'
+        dest: '.tmp/atemplateCache.js'
       }
     },
 
@@ -435,7 +435,7 @@ module.exports = function (grunt) {
     'concurrent:test',
     'autoprefixer',
     'connect:test',
-    'karma'
+    
   ]);
 
   grunt.registerTask('build', [

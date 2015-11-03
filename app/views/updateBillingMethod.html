@@ -1,7 +1,18 @@
 <div ng-controller="UpdatebillingmethodCtrl">
 
         <div class="modal-header">
-            <h3 class="modal-title puke-green">Change Billing Method</h3>
+		<div class="row">
+
+                <div class="col-sm-9">
+                <h3 class="modal-title puke-green">Change Billing Method</h3>
+            </div>
+            <div class="col-sm-2 pull-right">
+                <a class="close" ng-click="$dismiss()">X</a>
+            </div>
+
+            </div>
+
+
         </div>
         <div class="modal-body">
 
@@ -11,7 +22,7 @@
 <p>Current Billing Method: {{currentBillingMethod}}</p>
 
     <tabset justified="true">
-   <tab class="signup-tab" heading="Credit Card">
+   <tab class="update-tab" heading="Credit Card">
 		<div class="cc-form-container row">
 		<form stripe-form="handleStripe" name="card">
 			<div class="form-group">
@@ -55,7 +66,7 @@
 
 	</tab>
 
-		 <tab heading="PayPal" class="signup-tab">
+		 <tab heading="PayPal" class="update-tab">
 			 <div class="container" style="margin-top: 15px; margin-bottom: 15px">
 				 <div class="row">
 				 <p>To sign up, click on the "PayPal" button and log on to PayPal using your email and password.</p>
@@ -88,7 +99,7 @@
 
         </div>
         <div class="modal-footer">
-            <button class="btn btn-warning" type="button" ng-click="$dismiss()">Cancel</button>
+
         </div>
 
 

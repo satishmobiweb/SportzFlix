@@ -21,8 +21,8 @@ module.exports = function(config) {
       // bower:js
       'bower_components/jquery/dist/jquery.js',
       'bower_components/angular/angular.js',
-      'bower_components/angular-animate/angular-animate.js',
       'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
+      'bower_components/angular-animate/angular-animate.js',
       'bower_components/angular-busy/dist/angular-busy.js',
       'bower_components/angular-cookies/angular-cookies.js',
       'bower_components/api-check/dist/api-check.js',
@@ -39,6 +39,11 @@ module.exports = function(config) {
       'bower_components/braintree-angular/dist/braintree-angular.js',
       'bower_components/velocity/velocity.js',
       'bower_components/ng-morphing-modal/build/js/ngMorphingModal.js',
+      'bower_components/flexslider/jquery.flexslider.js',
+      'bower_components/angular-flexslider/angular-flexslider.js',
+      'bower_components/slick-carousel/slick/slick.min.js',
+      'bower_components/angular-slick/dist/slick.js',
+      'bower_components/angular-carousel/dist/angular-carousel.js',
       // endbower
       'app/scripts/**/*.js',
       'test/mock/**/*.js',

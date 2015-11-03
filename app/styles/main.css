@@ -1,89 +1,65 @@
 .browsehappy {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
 }
 
-body {
-  padding: 0;
-  background-color: #333333;
-  border-color: #333333;
+ /*==========  Mobile First Method  ==========*/
 
-}
+    /* Custom, iPhone Retina */
+    @media only screen and (min-width : 320px) {
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-  padding-left: 15px;
-  padding-right: 15px;
-}
+    }
 
-/* Custom page header */
-.header {
+    /* Extra Small Devices, Phones */
+    @media only screen and (min-width : 480px) {
 
-  margin-bottom: 10px;
-}
-/* Make the masthead heading the same height as the navigation */
-.header h3 {
-  margin-top: 0;
-  margin-bottom: 0;
-  line-height: 40px;
-  padding-bottom: 19px;
-}
+    }
 
-/* Custom page footer */
-.footer {
-  padding-top: 19px;
-  color: #777;
-  border-top: 1px solid #e5e5e5;
-}
+    /* Small Devices, Tablets */
+    @media only screen and (min-width : 768px) {
 
-.container-narrow > hr {
-  margin: 30px 0;
-}
+    }
 
-/* Main marketing message and sign up button */
-.jumbotron {
-  text-align: center;
-  border-bottom: 1px solid #e5e5e5;
-}
-.jumbotron .btn {
-  font-size: 21px;
-  padding: 14px 24px;
-}
+    /* Medium Devices, Desktops */
+    @media only screen and (min-width : 992px) {
 
-/* Supporting marketing content */
-.marketing {
-  margin: 40px 0;
-}
-.marketing p + h4 {
-  margin-top: 28px;
-}
+    }
 
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-  .container {
-    max-width: 730px;
-  }
+    /* Large Devices, Wide Screens */
+    @media only screen and (min-width : 1200px) {
 
-  /* Remove the padding we set earlier */
-  .header,
-  .marketing,
-  .footer {
-    padding-left: 0;
-    padding-right: 0;
-  }
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 30px;
-  }
-  /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
-    border-bottom: 0;
-  }
-}
+    }
+
+
+
+    /*==========  Non-Mobile First Method  ==========*/
+
+    /* Large Devices, Wide Screens */
+    @media only screen and (max-width : 1200px) {
+
+    }
+
+    /* Medium Devices, Desktops */
+    @media only screen and (max-width : 992px) {
+
+    }
+
+    /* Small Devices, Tablets */
+    @media only screen and (max-width : 768px) {
+
+    }
+
+    /* Extra Small Devices, Phones */
+    @media only screen and (max-width : 480px) {
+
+    }
+
+    /* Custom, iPhone Retina */
+    @media only screen and (max-width : 320px) {
+
+    }
+
 
 
 /* menu stuff */
@@ -91,6 +67,8 @@ body {
     background-color: #212121;
     border-color:  #212121;
     padding-bottom: 5px;
+    border-top: 2px #86CB2B solid;
+    min-height: 100px;
 
 }
 
@@ -101,21 +79,23 @@ body {
 }
 
 .custom-navbar-brand{
-    min-height: 20px;
+
 
 }
 
 .my-account-position{
     position:relative;
-    top: 11px;
+    top: 25px;
 
 }
 
-.header-link {
+.header-link li a{
     font-family: pt-sans, sans-serif;;
     font-size: 16px;
-    color: #ffffff;
+    color: white !important;
     font-weight: 700;
+    line-height: 19px;
+    text-align: center;
 
 }
 
@@ -123,6 +103,11 @@ body {
     color: #ffffff;
     text-decoration: none;
     cursor: pointer;
+}
+.btn-header{
+    background-color:transparent;
+    border-color: #212121;
+    font-size:16px;
 }
 
 .btn-header:hover, .btn-header:focus, .btn-header:active{
@@ -148,27 +133,6 @@ color: rgb(134, 203, 43);
 }
 
 /* slider controlls */
-.left, .right {
-    position: relative;
-    color: white;
-    font-size: 64px;
-    top:35px;
-    font-family: economica, sans-serif;
-    font-weight: 400;
-    line-height: 77px;
-
-    cursor: pointer;
-    z-index: 1;
-}
-.left {
-    left: 0;
-    width:15px;
-    margin-right: 35px;
-}
-.right {
-    right: 0;
-    width:15px;
-}
 
 .video-item{
 }
@@ -179,10 +143,6 @@ color: rgb(134, 203, 43);
     color: #86CB2B;
 }
 
-.bg-color-header-brown{
-    background-color:#212121;
-    border-color:  #212121;
-}
 
 /* bootstrap stuff */
 .modal-backdrop {
@@ -199,7 +159,7 @@ color: rgb(134, 203, 43);
 }
 
 .dropdown .open{
-background-color:#fff transparent !important;
+background-color:#fff !important;
 border:none !important;
 outline: none !important;
 }
@@ -208,6 +168,20 @@ outline: none !important;
 
 .signin-container{
     background-color: #F4F4F4;
+    min-height: 500px;
+    width: 420px;
+    margin-top:40px;
+
+
+}
+
+.signup-container{
+    background-color: #F4F4F4;
+    min-height: 500px;
+    width: 701px;
+    margin-top:40px;
+
+
 }
 
 .form-signin {
@@ -297,6 +271,24 @@ outline: none !important;
 
 }
 
+.update-tab{
+    color: black;
+    line-height: 22px;
+    text-align: center;
+    font-size: 18px;
+    font-family: pt-sans, sans-serif;
+    font-weight: 700;
+
+}
+
+.update-tab a{
+    color:lightgrey;
+}
+
+.signup-tab a{
+    color:lightgrey;
+}
+
 .ng-invalid {
         border-color: #f00 !important;
       }
@@ -346,7 +338,13 @@ outline: none !important;
     font-size: 16px;
     font-family: pt-sans, sans-serif;
     font-weight: 400;
+    background-color:#333;
 
+}
+
+.profile-backdrop{
+    background-color:#333;
+    height:100% !important;
 }
 
 .profile-row {
@@ -355,10 +353,690 @@ outline: none !important;
     border-bottom-color: #86CB2B;
     padding-bottom: 1px !important;
     margin-bottom: 10px;
+    margin-left: 15px;
+    margin-top:10px;
+
+}
+
+
+.profile-row-no-border {
+
+    padding-bottom: 1px !important;
+    margin-bottom: 10px;
+    margin-left: 15px;
+     margin-top:20px;
 
 }
 
 .profile-links{
     color: #FBB03B !important;
     text-decoration: none;
+}
+
+/* MODAL POPUP STYLES */
+.modal-backdrop{
+    background-color: #d9d9d9;
+    opacity:1.0 !important;
+
+}
+
+.modal-content {
+    margin-top: 50%;
+    border:none;
+    border-radius: 0px;
+    -webkit-box-shadow: 0 5px 15px rgba(0,0,0,0);
+    -moz-box-shadow: 0 5px 15px rgba(0,0,0,0);
+    -o-box-shadow: 0 5px 15px rgba(0,0,0,0);
+    box-shadow: 0 5px 15px rgba(0,0,0,0);
+        font-family: pt-sans, sans-serif;
+    font-weight: 700;
+
+
+}
+
+.modal-header {
+    border: none;
+}
+
+.modal-footer {
+    border: none;
+}
+
+.modal-content .btn {
+    background-color: #86CB2B;
+    border:none;
+}
+
+.modal-video-player{
+    height:100%;
+    width:100%;
+    background-color:black;
+}
+
+.modal-video-container {
+    margin-left:auto;
+    margin-right:auto;
+
+}
+
+/* close button for top right corner*/
+
+
+.close {
+  font-size: 20px;
+  margin-top:15px;
+    margin-right:15px;
+  font-weight: bold;
+  line-height: 18px;
+  color: #000000 !important;
+  text-shadow: 0 1px 0 #ffffff;
+  opacity: 0.2;
+  filter: alpha(opacity=20);
+  text-decoration: none;
+}
+
+.close:hover {
+  color: #000000;
+  text-decoration: none;
+  opacity: 0.4;
+  filter: alpha(opacity=40);
+  cursor: pointer;
+}
+
+.closevideo{
+    color: red;
+  text-decoration: none;
+  opacity: 0.4;
+  filter: alpha(opacity=40);
+  cursor: pointer;
+}
+
+.closevideo:hover {
+  color: #000000;
+  text-decoration: none;
+  opacity: 0.4;
+  filter: alpha(opacity=40);
+  cursor: pointer;
+}
+
+#membership_and_billing_header{
+        color: #9DC349;
+    line-height: 26px;
+    font-size: 20px;
+    font-family: pt-sans, sans-serif;
+    font-weight: 700;
+}
+
+.profile-container{
+    margin-top:30px;
+    background-color:#333;
+    min-height:100%;
+}
+
+.profile-container p{
+        color: #F2F2F2;
+    line-height: 19px;
+    text-align: left;
+    font-size: 14px;
+    font-family: pt-sans, sans-serif;
+    font-weight: 400;
+    margin-top:10px;
+
+
+}
+
+.cancel-button{
+    background: linear-gradient(to bottom,#86CB2B ,#669920 100%);
+    border-radius: 2px;
+    width: 60%;
+    margin: 0 auto 0 auto;
+    font-size:1em;
+}
+
+.cancel-button-sm{
+    width:100%
+}
+
+.browse-video-container{
+    background-color: #212121;
+    height:100%
+}
+
+.dropdown-menu{
+    background-color: #333;
+    color:white;
+}
+
+
+
+.menu-image-link{
+
+    display: block;
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+}
+
+.main-header .navbar-header img{
+    position: relative;
+    top:12px;
+}
+
+/*==========  browse channels page CSS  ==========*/
+.header-caption{
+    position: absolute;
+    right: 15%;
+    bottom: 20px;
+    left: 5%;
+    z-index: 10;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #fff;
+    text-align: left;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
+
+}
+
+.header-title{
+
+}
+
+.header-description{
+    color: #999;
+    font-size: 20px;
+     width:30%;
+}
+
+.header-play-button{
+    font-size:40px;
+    text-align:center;
+    color:darkgrey;
+}
+.header-play-button :hover{
+
+    color:white;
+}
+
+/*==========  Channel Page CSS  ==========*/
+
+.widewrapper {
+  width:100%;
+  }
+
+.widewrapper > img {
+  width:100%;
+  height:400px;
+}
+
+.channel_header{
+    margin-bottom:20px;
+}
+
+.channel_title {
+    color: white;
+
+}
+
+.channel_description {
+    color: #999;
+    font-size: 20px;
+}
+
+.episode-caption{
+    position: absolute;
+    right: 15%;
+    top:5%;
+    left: 5%;
+    z-index: 10;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    color: #fff;
+    text-align: left;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
+
+}
+
+.episode_title{
+    color: white;
+
+    margin-bottom: 10px;
+}
+
+.episode_description{
+    color: #999;
+    font-size: 16px;
+}
+
+.episode_container{
+    max-width:312px;
+    margin-right:10px !important;
+    width: 100%;
+}
+
+.episode_image{
+    max-height: 176px;
+    max-width:312px;
+    width:100%
+}
+
+
+
+/*LEAD CAROUSEL STYLES*/
+.carousel-container{
+    padding-left:0px !important;
+    padding-right:0px !important;
+
+}
+
+/*DIRECT NETFLIX CLONE*/
+
+.hdSpace {
+    height: 100px;
+    position: relative;
+    display: block;
+}
+
+.hdPinTarget{
+    background-image: linear-gradient(to bottom,rgba(0,0,0,.7) 10%,#212121);
+    position: fixed;
+    top: 0;
+    min-height: 100px;
+    margin: 0;
+    width: 100%;
+    z-index: 100;
+    box-sizing: border-box;
+    padding: 0 4%;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-size: 10px;
+    -webkit-font-smoothing: antialiased;
+
+}
+
+
+.nflix-logo{
+    position:relative;
+    top:-6px;
+    text-decoration: none;
+    padding: 18px 0;
+    font-size: 32px;
+    color: #e50914;
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    width: 150px;
+    font-family: nf-icon;
+
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    background-color: transparent;
+    white-space: nowrap;
+}
+
+.netflix-right-nav{
+    align-items: center;
+    position: relative;
+    font-size: 16px;
+    display: flex;
+    -webkit-box-align: center;
+}
+
+.netflix-nav-element{
+        margin: 0 25px 0 0;
+}
+
+.netflix-nav-element button{
+    position: relative;
+    top: -3px;
+}
+
+.nav-element:last-child {
+    margin-right: 0;
+}
+
+.profile-drop-down{
+    position: relative;
+    font-size: 16px;
+    height: 32px;
+}
+
+
+
+.profile-drop-down-button{
+        width: 100%;
+    cursor: pointer;
+        align-items: center;
+        display: flex;
+    -webkit-box-align: center;
+}
+
+.profile-link{
+    position: relative;
+    display: flex;
+    align-items: center;
+
+}
+
+.profile-text {
+        overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    margin-left: 6px;
+    font-weight: 700;
+    max-width: 80px;
+}
+
+
+.bg-color-header-brown{
+    background-color:transparent;
+    border-color:  transparent;
+}
+
+span.glyphicon {
+    font-size: 1.4em;
+}
+
+.profile-dropdown-link{
+    color:white !important;
+}
+
+
+
+
+.netflix-ul{
+    display: inline-block;
+    vertical-align: top;
+    margin: 0;
+    padding: 0 4%;
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    list-style-type: disc;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 40px;
+    list-style-type: disc;
+}
+
+.netflix-ul li{
+    line-height: 70px;
+    text-align: -webkit-match-parent;
+
+}
+
+.netflix-ul a {
+        font-size: 16px;
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+        background-color: transparent;
+}
+
+/*NETFLIX CLONE ROWS*/
+
+.netflix-main-row {
+        position: relative;
+    padding-left: 60px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    display:block ;
+
+}
+
+.netflix-main-row h2 {
+        font-size: 1.4vw;
+    font-weight: 700;
+    margin: 0 0 .5em 0;
+        padding: 0;
+    border: 0;
+    font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+    vertical-align: baseline;
+    -webkit-margin-before: 0.83em;
+    -webkit-margin-after: 0.83em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    color:#999;
+
+}
+
+.netflix-row-container{
+    transition: transform .54s cubic-bezier(0.5,0,.1,1) 0s;
+        position: relative;
+    z-index: 0;
+    display: block;
+
+}
+
+.netflix-row-container .netflix-row-content{
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+.netflix-slider-item{
+        z-index: 1;
+    display: inline-block;
+    position: relative;
+    white-space: normal;
+    vertical-align: top;
+    width:236px;
+
+
+}
+
+
+
+.netflix-title-card-container{
+        white-space: normal;
+    display: block;
+
+
+
+}
+
+.netflix-title-card{
+    position: relative;
+    border: 2px solid black;
+    z-index: 5;
+    cursor: pointer;
+    outline: 0;
+}
+
+.netflix-title-card .selected{
+    border: 4px solid white;
+}
+
+
+.flexslider {
+    background:none;
+    border:none;
+}
+
+.slider-overlay {
+    position:absolute; /* absolute position (so we can position it where we want)*/
+    bottom: 0;
+    left:0px;
+
+    /* styling bellow */
+
+
+    font-size:15px;
+    color:white;
+    z-index: 1;
+    display: none;
+
+
+}
+
+
+.extra-more{
+    position:absolute;
+    right:0px;
+    bottom:0px;
+    font-size:20px;
+     color:darkgrey;
+
+}
+
+.extra-more:hover{
+    color:white;
+}
+
+.extra-overlay{
+  position:absolute; /* absolute position (so we can position it where we want)*/
+    bottom: 0px;
+    left:0px;
+    width:100%;
+    height:100%;
+
+    /* styling bellow */
+
+
+    font-size:15px;
+    color:white;
+    z-index: 1;
+    display:none;
+
+
+}
+
+.extra-play-button{
+
+
+
+    font-size:40px;
+    text-align:center;
+    margin-top:15%;
+    color:darkgrey;
+}
+
+.extra-play-button:hover{
+color:white;
+}
+
+
+
+
+/*FOOTER STUFF*/
+
+.footer-container{
+        max-width: 980px;
+    margin: 40px 40px 0;
+    padding: 0 4%;
+    color: grey;
+    text-align:center;
+}
+
+.footer-container ul{
+    width:100%;
+        font-size: 13px;
+    display: flex;
+        flex-direction: row;
+            -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-wrap: wrap;
+    -webkit-box-align: start;
+
+
+    padding: 0;
+}
+
+.footer-container li{
+        flex-basis: 15%;
+        list-style-type: none;
+    -webkit-box-flex: 0;
+
+    margin-bottom: 16px;
+        box-sizing: border-box;
+            display: list-item;
+    text-align: -webkit-match-parent;
+}
+
+/*EXPANDABLE DESCRIPTION STYLES*/
+.sub-description{
+    width:100%;
+    height:400px;
+    background-color:black;
+        display: none;
+
+}
+
+.description-close{
+    font-size: 20px;
+  margin-top:15px;
+    margin-right:15px;
+  font-weight: bold;
+  line-height: 18px;
+  color: darkgrey !important;
+  text-shadow: 0 1px 0 #ffffff;
+  opacity: 0.5;
+  filter: alpha(opacity=20);
+  text-decoration: none;
+  position:absolute;
+
+  right:0px;
+
+}
+
+.description-close:hover{
+    color:white !important;
+    opacity: 1;
+}
+
+.description-main{
+    z-index: 1;
+
+}
+
+.image-holder{
+    -webkit-font-smoothing: antialiased;
+-webkit-user-select: none;
+
+    background-image: url(http://so0.akam.nflximg.com/soa2/631/1380006631.webp);
+background-size: cover;
+
+
+
+display: block;
+
+font-size: 12.09px;
+height: 400px;
+    width: 70%;
+opacity: 1;
+
+float:left;
+
+    z-index: 4;
+
+}
+.description-holder{
+
+    height: 400px;
+    width: 30%;
+    display:block;
+    float: left;
+    color:white;
+    padding-left:15px;
+}
+
+.description-play-button{
+    text-align:center;
+    font-size:6em;
+    margin-top:12%;
+    z-index: 5;
+}
+
+.description-play-button:hover{
+    color:white;
 }

@@ -1,29 +1,93 @@
-<div class="container-fluid">
+
+<div menu></div>
+
+<!--BEGIN HEADER CAROUSEL-->
+<div class="container-fluid carousel-container">
 
 
-    <div class="row" ng-repeat="channel in channelList | orderBy:'title'">
-    <h2 class="video-browse-headers">{{channel.title}}</h2>
 
-        <div owl-carousel="channel.videos" >
-        <div class="item video-item">
-            <div ng-click="playVideo(item.media_id)">
-                <img class="img-responsive" src="{{item.thumbnails[1].url}}">
-            <p class="puke-green" >{{item.title}}</p>
+    <uib-carousel interval="2000">
+      <uib-slide ng-repeat="image in carousels">
+
+
+        <img ng-src="{{image.image}}" style="width:100%">
+        <div class="carousel-caption">
+
+           <div class="header-title">
+                <h2>{{image.title}}</h2>
+           </div>
+            <div class="header-description">
+                <p>{{image.description}}</p>
+            </div>
+
+
+        </div>
+      </uib-slide>
+    </uib-carousel>
+
+</div>
+<!--END HEADER CAROUSEL-->
+
+<div class="container-fluid browse-video-container">
+
+
+
+
+
+    <div class="netflix-main-row" ng-repeat="channel in channels | orderBy:'channel.title'">
+
+
+        <h2 class="video-browse-headers">{{channel.title}}</h2>
+        <div class="netflix-row-content">
+
+
+        <div owl-carousel="channel.episodes">
+
+            <div class="netflix-slider-item">
+                <div class="item video-item">
+                    <div class="netflix-title-card-container">
+                        <div class="netflix-title-card" id="{{item.media_id}}">
+                            <title-card>
+
+                            </title-card>
+
+
+
+                    </div>
+                    </div>
+            </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="sub-description" id="{{channel.id}}">
+            <div class="description-close" ng-click="closeFocus(channel.id)">X</div>
+            <div class="description-main">
+
+
+                <div class="description-holder">
+                    <h1>{{currentFocus.title}}</h1>
+                    <p>{{currentFocus.description}}</p>
+                </div>
+                <div class="image-holder">
+
+                    <div class="description-play-button">
+                                                <span class="glyphicon glyphicon-play-circle" ng-click="playVideo(item.media_id)">
+                                                      </span>
+                    </div>
+                </div>
+
 
             </div>
 
 
-
         </div>
+
+
     </div>
 
 
 
-
 </div>
 
-
-
-
-</div>
-
+<footer></footer>
