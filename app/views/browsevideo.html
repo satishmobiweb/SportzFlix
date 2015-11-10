@@ -2,24 +2,25 @@
 <div menu></div>
 
 <!--BEGIN HEADER CAROUSEL-->
-<div class="container-fluid carousel-container">
+<div class="container-fluid carousel-container hidden-xs">
 
 
 
     <uib-carousel interval="2000">
+
       <uib-slide ng-repeat="image in carousels">
+             <div class="carousel-image" ng-click="goToCarousel(image)">
+            <img ng-src="{{image.image}}" style="width:100%">
+        </div>
 
 
-        <img ng-src="{{image.image}}" style="width:100%">
-        <div class="carousel-caption">
+
+
+        <div class="carousel-caption" ng-click="goToCarousel(image)">
 
            <div class="header-title">
                 <h2>{{image.title}}</h2>
            </div>
-            <div class="header-description">
-                <p>{{image.description}}</p>
-            </div>
-
 
         </div>
       </uib-slide>
@@ -55,6 +56,10 @@
 
                     </div>
                     </div>
+                    <div class="episode-title-container">
+                            <h2>{{item.title}}</h2>
+
+                        </div>
             </div>
             </div>
         </div>
@@ -69,6 +74,7 @@
                     <h1>{{currentFocus.title}}</h1>
                     <p>{{currentFocus.description}}</p>
                 </div>
+
                 <div class="image-holder">
 
                     <div class="description-play-button">
@@ -76,7 +82,6 @@
                                                       </span>
                     </div>
                 </div>
-
 
             </div>
 

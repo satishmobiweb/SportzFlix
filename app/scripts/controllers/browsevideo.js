@@ -135,9 +135,18 @@ angular.module('sportzflixApp')
     }
 
 
+    //send person to the player episode page and passes the episode id.
+        $scope.goToPlayer = function(item, channel){
+           $location.path('/channel/'+ channel.id + '/' + item.id);
+        }
 
 
+    //
 
+    $scope.goToCarousel = function(cr){
+
+        $location.path('/channel/1/1')
+    }
 
 
 

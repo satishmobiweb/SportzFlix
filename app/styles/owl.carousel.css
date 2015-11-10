@@ -87,6 +87,7 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  display:none;
 }
 .owl-carousel.owl-loaded {
   display: block;
@@ -216,7 +217,7 @@
 */
 
 .owl-theme .owl-controls{
-	margin-top: 10px;
+	margin-top: 0px;
 	text-align: center;
 }
 
@@ -310,26 +311,6 @@
   border:1px white;
 }
 
-.wrapper-with-margin{
-  margin:0px 50px;
-}
-
-
-.owl-carousel .owl-video-frame {
-  position: relative;
-  z-index: 1;
-}
-
-.owl-theme .owl-controls .owl-buttons div {
-  position: absolute;
-}
-
-.owl-theme .owl-controls .owl-buttons .owl-prev{
-  left: -45px;
-  top: 55px;
-}
-
-.owl-theme .owl-controls .owl-buttons .owl-next{
-  right: -45px;
-  top: 55px;
+.owl-controls {
+  margin-top:0px;
 }

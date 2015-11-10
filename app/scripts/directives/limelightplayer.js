@@ -25,7 +25,7 @@ angular.module('sportzflixApp')
       link: function (scope, elem, attrs) {
 
           console.log('media id in attrs',attrs.media)
-          //console.log(LimelightPlayerUtil)
+          console.log(LimelightPlayerUtil)
 
           function limelightPlayerCallback(playerId, eventName, data) {
             var id = "limelight_player_406354";
@@ -34,9 +34,11 @@ angular.module('sportzflixApp')
             }
         }
              $timeout(function() {
-      LimelightPlayerUtil.initEmbed('limelight_player_406354');
+      LimelightPlayerUtil.initEmbed('limelight_player_406354', {embedMode:"html"});
 
-      }, 1000)
+
+
+      }, 3000)
 
 
 

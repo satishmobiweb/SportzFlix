@@ -44,6 +44,12 @@ module.exports = function(config) {
       'bower_components/slick-carousel/slick/slick.min.js',
       'bower_components/angular-slick/dist/slick.js',
       'bower_components/angular-carousel/dist/angular-carousel.js',
+      'bower_components/ui-select/dist/select.js',
+      'bower_components/underscore/underscore.js',
+      'bower_components/momentjs/moment.js',
+      'bower_components/humanize-duration/humanize-duration.js',
+      'bower_components/angular-timer/dist/angular-timer.js',
+      'bower_components/angular-easyfb/build/angular-easyfb.js',
       // endbower
       'app/scripts/**/*.js',
       'test/mock/**/*.js',

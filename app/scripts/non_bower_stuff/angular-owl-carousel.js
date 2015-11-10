@@ -7,7 +7,7 @@
 			owlCarouselDirective
 		]);
 
-	function owlCarouselDirective($parse) {
+	function owlCarouselDirective($parse, $scope) {
 
 		var owlOptions = [
             'number:2',
@@ -92,6 +92,7 @@
 		return {
 			restrict: 'A',
 			transclude: true,
+			scope:$scope,
 			link: function (scope, element, attributes, controller, $transclude) {
 
 				var options = {},
@@ -112,12 +113,19 @@
 			//options.items = 5;
 				options.autoWidth = true;
 				options.nav = false;
+				options.dots= false;
+				options.navContainer = false;
+				options.loop = true;
 
+
+/*
     options.navText = [
       "<i class='icon-chevron-left icon-white'><</i>",
       "<i class='icon-chevron-right icon-white'>></i>"
       ]
 
+*/
+				console.log('owlscope', scope)
 
 				scope.$watchCollection(propertyName, function (newItems, oldItems) {
 

@@ -27,14 +27,29 @@ angular
       'formlyBootstrap',
         'angular-flexslider',
         'angular-carousel',
-        'slick'
+        'ui.select',
+        'angularMoment',
+        'timer',
+        'ezfb'
+
+
 
 
 
   ])
 
-    .constant('API_URL', 'https://calm-falls-3900.herokuapp.com/')
+    .constant('API_URL', 'http://127.0.0.1:8000/')
     .constant('clientTokenPath', 'https://calm-falls-3900.herokuapp.com/' + 'braintree_token')
+    .constant('SOCIAL_PLUGINS', [
+      'like', 'share-button', 'send', 'post', 'video',
+      'comments', 'page', 'follow'
+    ])
+
+
+    //underscore js constant
+    .constant('_',
+    window._
+        )
 
     .config(function($windowProvider, $httpProvider) {
       $windowProvider.$get().Stripe.setPublishableKey('pk_test_b7DNvcW0ILbXaqffYQNo2DWU');
@@ -46,6 +61,18 @@ angular
 
 
 })
+
+    .config(function (ezfbProvider) {
+  ezfbProvider.setLocale('en_US');
+})
+
+   .config(function (ezfbProvider) {
+      ezfbProvider.setInitParams({
+        appId: '1641258842809269'
+      })
+    })
+
+
 
 
     .constant("limelightAccessKey", 'hEG/dm1MZMV1wOQTw0uMfhbQJyw=')
@@ -63,7 +90,7 @@ angular
     $location.path('/about');
 });
 
-    ;
+
 
 
 })
@@ -109,10 +136,15 @@ angular
         controller: 'ProfileCtrl',
         controllerAs: 'profile'
       })
-      .when('/channel/:channelId', {
+      .when('/channel/:channelId/:episodeId', {
         templateUrl: 'views/channel.html',
         controller: 'ChannelCtrl',
         controllerAs: 'channel'
+      })
+      .when('/liveevent/:eventId', {
+        templateUrl: 'views/liveevent.html',
+        controller: 'LiveeventCtrl',
+        controllerAs: 'liveevent'
       })
       .otherwise({
         redirectTo: '/browsevideo',

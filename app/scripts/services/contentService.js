@@ -8,7 +8,7 @@
  * Factory in the sportzflixApp.
  */
 angular.module('sportzflixApp')
-  .service('limelightService', function ($http, API_URL) {
+  .service('contentService', function ($http, API_URL) {
     // Service logic
     // ...
 
@@ -27,13 +27,15 @@ angular.module('sportzflixApp')
     }
 
     this.getChannelData = function(episodeId){
-      return $http.get(API_URL + 'channels/' + episodeId + '/')
+      return $http.get(API_URL + 'channels/' + episodeId + '/');
+    }
+
+    this.getEventData = function(eventId){
+        return $http.get(API_URL + 'events/' + episodeId + '/');
     }
 
 
-  this.getEventData = function(eventId){
-        return $http.get(API_URL + 'events/' + eventId + '/');
-    }
+
 
 
     // Public API here

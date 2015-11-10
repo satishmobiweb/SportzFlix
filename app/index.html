@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="bower_components/slick-carousel/slick/slick.css" />
     <link rel="stylesheet" href="bower_components/slick-carousel/slick/slick-theme.css" />
     <link rel="stylesheet" href="bower_components/angular-carousel/dist/angular-carousel.css" />
+    <link rel="stylesheet" href="bower_components/ui-select/dist/select.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -30,6 +31,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paymentfont/1.1.2/css/paymentfont.css">
 </head>
 <body ng-app="sportzflixApp">
+
 <!--[if lte IE 8]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
     your browser</a> to improve your experience.</p>
@@ -40,7 +42,7 @@
 <!-- logged in-->
 
 
-<div>
+<div class="container-fluid nopad">
     <div ng-view=""></div>
 </div>
 
@@ -66,6 +68,8 @@
     ga('create', 'UA-XXXXX-X');
     ga('send', 'pageview');
 </script>
+
+
 
 
 
@@ -96,6 +100,12 @@
 <script src="bower_components/slick-carousel/slick/slick.min.js"></script>
 <script src="bower_components/angular-slick/dist/slick.js"></script>
 <script src="bower_components/angular-carousel/dist/angular-carousel.js"></script>
+<script src="bower_components/ui-select/dist/select.js"></script>
+<script src="bower_components/underscore/underscore.js"></script>
+<script src="bower_components/momentjs/moment.js"></script>
+<script src="bower_components/humanize-duration/humanize-duration.js"></script>
+<script src="bower_components/angular-timer/dist/angular-timer.js"></script>
+<script src="bower_components/angular-easyfb/build/angular-easyfb.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 
@@ -132,12 +142,13 @@
 <script src="scripts/directives/title-card.js"></script>
 <script src="scripts/directives/footer.js"></script>
 <script src="scripts/directives/subdescription.js"></script>
+<script src="scripts/controllers/liveevent.js"></script>
 <!-- endbuild -->
-<script src="http://video.limelight.com/player/embed.js"></script>
+
 <script src="https://app.userapp.io/js/userapp.client.js"></script>
 <script src="https://app.userapp.io/js/angularjs.userapp.js"></script>
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-
+ <script src="http://assets.delvenetworks.com/player/embed.js"></script>
 
 
 

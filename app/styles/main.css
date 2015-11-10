@@ -60,7 +60,9 @@
 
     }
 
-
+.nopad{
+    padding: 0px 0px 0px 0px;
+}
 
 /* menu stuff */
 .main-header{
@@ -787,7 +789,7 @@ span.glyphicon {
     margin: 0;
     padding: 0;
     border: 0;
-    font-size: 100%;
+    font-size: 18px;
     font: inherit;
     vertical-align: baseline;
     display:block ;
@@ -795,7 +797,7 @@ span.glyphicon {
 }
 
 .netflix-main-row h2 {
-        font-size: 1.4vw;
+        font-size: 18px;
     font-weight: 700;
     margin: 0 0 .5em 0;
         padding: 0;
@@ -808,6 +810,22 @@ span.glyphicon {
     -webkit-margin-end: 0px;
     color:#999;
 
+}
+
+.netflix-main-row h1{
+
+    font-weight: 700;
+    margin: 0 0 .5em 0;
+        padding: 0;
+    border: 0;
+    font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+    vertical-align: baseline;
+    -webkit-margin-before: 0.83em;
+    -webkit-margin-after: 0.83em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    color:#999;
+    font-size:22px;
 }
 
 .netflix-row-container{
@@ -966,7 +984,7 @@ color:white;
 /*EXPANDABLE DESCRIPTION STYLES*/
 .sub-description{
     width:100%;
-    height:400px;
+    min-height:480px;
     background-color:black;
         display: none;
 
@@ -999,19 +1017,33 @@ color:white;
 
 }
 
+.image-holder-wrapper{
+width: 70%;
+  /* whatever width you want */
+  display: inline-block;
+  position: relative;
+}
+
+.image-holdler-wrapper:after{
+    padding-top: 56.25%;
+  /* 16:9 ratio */
+  display: block;
+  content: '';
+}
+
 .image-holder{
     -webkit-font-smoothing: antialiased;
 -webkit-user-select: none;
 
     background-image: url(http://so0.akam.nflximg.com/soa2/631/1380006631.webp);
-background-size: cover;
+background-size:100% 100%;
 
 
 
 display: block;
 
 font-size: 12.09px;
-height: 400px;
+min-height: 300px;
     width: 70%;
 opacity: 1;
 
@@ -1020,9 +1052,12 @@ float:left;
     z-index: 4;
 
 }
+
+
+
 .description-holder{
 
-    height: 400px;
+    min-height:300px;
     width: 30%;
     display:block;
     float: left;
@@ -1039,4 +1074,169 @@ float:left;
 
 .description-play-button:hover{
     color:white;
+}
+
+/*CHANNEL PAGE STYLES*/
+
+.channel-page-header-photo-container{
+    width:100%;
+    height:480px;
+}
+
+.channel-page-header-photo-container img{
+    height:100%;
+    width:100%;
+}
+
+.channel-header-background{
+    width:100%;
+
+    background-color: #4C4C4C;
+
+    padding-top:15px;
+    margin-bottom: 10px;
+}
+
+.channel-header-background h1{
+    color:white
+}
+
+.channel-header-background select{
+    border-radius: 0px;
+    border: thin;
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0 0 .8em 0;
+    padding: 0;
+    border: 0;
+    font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+    vertical-align: baseline;
+    -webkit-margin-before: 0.83em;
+    -webkit-margin-after: 0.83em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    color: #999;
+    background-color: white;
+
+}
+
+.channel-header-background .dropdown-menu{
+    background-color:white;
+
+}
+
+.channel-header-select-container{
+    margin-top:12px;
+}
+
+.episode-title-container{
+    margin-left: 1em;
+}
+
+.episode-title-container p {
+    color:white;
+}
+
+.episode-title-container h2 {
+    color:#86CB2B;
+}
+
+.channel-episode-sub-description h1{
+    color: #86CB2B;
+    margin-top:5px;
+}
+
+.channel-episode-sub-description h3{
+    color: white;
+    margin-top:5px;
+    margin-bottom: 5px;
+}
+
+.channel-episode-sub-description p{
+    color:white;
+    font-size:15px;
+    margin-left:0px;
+}
+
+.carousel-image{
+    position: relative;
+    hegiht:100%;
+    width:100%;
+
+}
+
+.carousel-image:before{  content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background: radial-gradient(transparent, black);
+        background-size:cover;
+		opacity: 1; }
+
+/*LIVE EVENTN PAGE STYLES */
+.event-header-image{
+    width:100%;
+    height:400px;
+
+    background-size:cover;
+    position: relative;
+}
+
+.countdown-container{
+    widht:auto;
+    text-align: center;
+    color:white;
+    position:absolute;
+    bottom:0;
+    right:0;
+    left:0;
+    margin:auto;
+}
+
+.notify-button-container{
+
+margin-top:15px;
+
+}
+
+.notify-button-container button{
+    color:white;
+    background-color:transparent;
+}
+
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+
+.sponsorship-container{
+
+}
+
+.livestream-now{
+    color:white
+}
+
+.live-now-header-bar{
+    z-index: 20;
+    min-height: 45px;
+    background-color: #9DC349;
+    padding-bottom: 9px;
+    padding-top:9px;
+    text-align: center;
+    color:white;
+    margin-bottom:15px;
+}
+
+
+.live-video-container{
+  width:520px;
+  margin: 0 auto 0 auto;
+}
+
+.facebook-style{
+    background-color: white;
+    margin-top: 15px;
 }
