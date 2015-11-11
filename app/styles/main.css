@@ -65,6 +65,15 @@
 }
 
 /* menu stuff */
+.menu-top-bar{
+    width:100%;
+    height:4px;
+    background-color: #86CB2B;
+    position: absolute;
+    top:0;
+    left:0;
+}
+
 .main-header{
     background-color: #212121;
     border-color:  #212121;
@@ -636,6 +645,7 @@ outline: none !important;
     height: 100px;
     position: relative;
     display: block;
+
 }
 
 .hdPinTarget{
@@ -1176,23 +1186,33 @@ float:left;
 		opacity: 1; }
 
 /*LIVE EVENTN PAGE STYLES */
-.event-header-image{
-    width:100%;
-    height:400px;
 
+.pre-event{
+    width:100%;
+    height:425px;
+}
+
+.event-header-image:before{
+
+    background-image: url("../images/53adffa1e264d-u1102-fr.png");
     background-size:cover;
-    position: relative;
+     content: ' ';
+    display: block;
+    position: fixed;
+    width: 100%;
+    height:425px;
+    z-index: -1;
+    opacity: 0.6;
+
 }
 
 .countdown-container{
-    widht:auto;
+    width:auto;
     text-align: center;
     color:white;
-    position:absolute;
-    bottom:0;
-    right:0;
-    left:0;
-    margin:auto;
+    position:relative;
+    margin-top:200px;
+
 }
 
 .notify-button-container{
@@ -1211,12 +1231,10 @@ margin-top:15px;
     margin: 0 auto;
 }
 
-.sponsorship-container{
-
-}
 
 .livestream-now{
-    color:white
+    color:white;
+    margin-top:15px;
 }
 
 .live-now-header-bar{
@@ -1227,7 +1245,12 @@ margin-top:15px;
     padding-top:9px;
     text-align: center;
     color:white;
-    margin-bottom:15px;
+    widht:100%;
+    line-height: 38px;
+    text-align: center;
+    font-size: 32px;
+    font-family: pt-sans, sans-serif;
+    font-weight: 700;
 }
 
 

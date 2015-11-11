@@ -21,6 +21,9 @@ angular.module('sportzflixApp')
         //data binding for the currently broswed item;
         $scope.currentFocus = {}
 
+        //events loaded var
+        $scope.eventLoaded = false;
+
 
         var rotateImage = function(item){
 
@@ -88,8 +91,6 @@ angular.module('sportzflixApp')
         }
 
 
-
-
         //grab the channel groups and channels from limelight1
         limelightService.getChannels().success(function(data){
             $scope.channels = data;
@@ -101,6 +102,13 @@ angular.module('sportzflixApp')
         limelightService.getCarousels().success(function(data){
             $scope.carousels = data;
             console.log($scope.carousels)
+        });
+
+        //grab the events from the server
+        limelightService.getLiveEvents().success(function(data){
+            $scope.events = data;
+            console.log(data);
+            $scope.eventsLoaded = true;
         })
 
 
@@ -126,12 +134,8 @@ angular.module('sportzflixApp')
         return $scope.currentVideo;
       },
       backdrop: false
-
     }
-
-
       })
-
     }
 
 
@@ -140,17 +144,13 @@ angular.module('sportzflixApp')
            $location.path('/channel/'+ channel.id + '/' + item.id);
         }
 
-
-    //
-
+    //navigate to the clicked on carousel item
     $scope.goToCarousel = function(cr){
-
         $location.path('/channel/1/1')
     }
 
-
-
-
-
-
+    //navigate to the clicked on event
+     $scope.goToEvent = function(item){
+        $location.path('/liveevent/' + item.id)
+    }
   });

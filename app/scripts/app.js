@@ -30,7 +30,8 @@ angular
         'ui.select',
         'angularMoment',
         'timer',
-        'ezfb'
+        'ezfb',
+        'slick'
 
 
 
@@ -38,7 +39,7 @@ angular
 
   ])
 
-    .constant('API_URL', 'http://127.0.0.1:8000/')
+    .constant('API_URL', 'https://calm-falls-3900.herokuapp.com/')
     .constant('clientTokenPath', 'https://calm-falls-3900.herokuapp.com/' + 'braintree_token')
     .constant('SOCIAL_PLUGINS', [
       'like', 'share-button', 'send', 'post', 'video',

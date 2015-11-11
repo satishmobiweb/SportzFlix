@@ -1,29 +1,25 @@
-
 <div menu></div>
 
 <!--BEGIN HEADER CAROUSEL-->
 <div class="container-fluid carousel-container hidden-xs">
 
 
-
     <uib-carousel interval="2000">
 
-      <uib-slide ng-repeat="image in carousels">
-             <div class="carousel-image" ng-click="goToCarousel(image)">
-            <img ng-src="{{image.image}}" style="width:100%">
-        </div>
+        <uib-slide ng-repeat="image in carousels">
+            <div class="carousel-image" ng-click="goToCarousel(image)">
+                <img ng-src="{{image.image}}" style="width:100%">
+            </div>
 
 
+            <div class="carousel-caption" ng-click="goToCarousel(image)">
 
+                <div class="header-title">
+                    <h2>{{image.title}}</h2>
+                </div>
 
-        <div class="carousel-caption" ng-click="goToCarousel(image)">
-
-           <div class="header-title">
-                <h2>{{image.title}}</h2>
-           </div>
-
-        </div>
-      </uib-slide>
+            </div>
+        </uib-slide>
     </uib-carousel>
 
 </div>
@@ -32,39 +28,28 @@
 <div class="container-fluid browse-video-container">
 
 
-
-
-
     <div class="netflix-main-row" ng-repeat="channel in channels | orderBy:'channel.title'">
-
-
         <h2 class="video-browse-headers">{{channel.title}}</h2>
+
         <div class="netflix-row-content">
-
-
-        <div owl-carousel="channel.episodes">
-
-            <div class="netflix-slider-item">
-                <div class="item video-item">
-                    <div class="netflix-title-card-container">
-                        <div class="netflix-title-card" id="{{item.media_id}}">
-                            <title-card>
-
-                            </title-card>
-
-
-
-                    </div>
-                    </div>
-                    <div class="episode-title-container">
-                            <h2>{{item.title}}</h2>
-
+            <div owl-carousel="channel.episodes">
+                <div class="netflix-slider-item">
+                    <div class="item video-item">
+                        <div class="netflix-title-card-container">
+                            <div class="netflix-title-card" id="{{item.media_id}}">
+                                <title-card></title-card>
+                            </div>
                         </div>
-            </div>
+                        <div class="episode-title-container">
+                            <h2>{{item.title}}</h2>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        </div>
+        <!--REMOVED SUBDESCRIPTION STUFF-->
 
+        <!--
         <div class="sub-description" id="{{channel.id}}">
             <div class="description-close" ng-click="closeFocus(channel.id)">X</div>
             <div class="description-main">
@@ -76,22 +61,47 @@
                 </div>
 
                 <div class="image-holder">
-
                     <div class="description-play-button">
                                                 <span class="glyphicon glyphicon-play-circle" ng-click="playVideo(item.media_id)">
-                                                      </span>
+                                                    </span>
                     </div>
                 </div>
-
             </div>
-
-
         </div>
-
-
+        -->
     </div>
 
+    <div class="netflix-main-row">
+        <h2 class="video-browse-headers">Live Events</h2>
 
+        <div class="netflix-row-content">
+            <slick dots="true" infinite="false" speed="300" slides-to-show="5" touch-move="false" slides-to-scroll="1" ng-if="eventsLoaded">
+
+                <div class="netflix-slider-item" ng-repeat="event in events">
+                    <div class="netflix-title-card-container">
+                            <div class="netflix-title-card" id="{{event.id}}">
+                                <event-card></event-card>
+                            </div>
+                        </div>
+                </div>
+
+            </slick>
+            <div owl-carousel="events">
+                <div class="netflix-slider-item">
+                    <div class="item video-item">
+                        <div class="netflix-title-card-container">
+                            <div class="netflix-title-card" >
+                                <event-card></event-card>
+                            </div>
+                        </div>
+                        <div class="episode-title-container">
+                            <h2>{{item.title}}</h2>
+                        </div>
+                    </div>
+            </div>
+        </div>
+
+    </div>
 
 </div>
 

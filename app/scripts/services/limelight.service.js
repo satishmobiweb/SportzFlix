@@ -35,6 +35,19 @@ angular.module('sportzflixApp')
         return $http.get(API_URL + 'events/' + eventId + '/');
     }
 
+  this.notifyUserOfEvent = function (event, userEmail) {
+    var data = {
+      event: event,
+      email: userEmail
+
+    }
+    return $http.post(API_URL + 'events/notify_user_of_event/', data);
+  }
+
+
+  this.getLiveEvents = function(){
+    return $http.get(API_URL + 'events/');
+  }
 
     // Public API here
   });

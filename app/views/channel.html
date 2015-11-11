@@ -1,0 +1,133 @@
+<div menu></div>
+
+
+<div class="channel-header-background">
+
+    <!--
+    <div class="channel-page-header-photo-container">
+    <img src="{{channel.image}}" class="img-responsive" alt="{{channel.title}}">
+</div>
+    -->
+
+<div class="container">
+    <!--begin season selection and title row-->
+    <div class="row netflix-main-row">
+        <div class="col-sm-2 col-xs-12 channel-header-select-container">
+            <ui-select ng-model="currentSeason" on-select="grabEpisodesInSeason(channel.episodes, currentSeason)">
+                <ui-select-match>
+                    <span ng-bind="$select.selected.title"></span>
+                </ui-select-match>
+                <ui-select-choices repeat="item in channel.seasons">
+                    <span ng-bind="item.title"></span>
+                </ui-select-choices>
+            </ui-select>
+        </div>
+        <div class="col-sm-8 col-sm-offset-2 col-xs-12">
+            <h1>{{channel.title}}</h1>
+        </div>
+    </div>
+    <!--end season selection and title row-->
+
+
+    <!--begin episode selection slider-->
+    <div class="netflix-main-row">
+
+        <div class="netflix-row-content">
+
+
+            <div owl-carousel="episodesInCurrentSeason" ui-if="rerenderEpisodes">
+
+                <div class="netflix-slider-item">
+                    <div class="item video-item">
+                        <div class="netflix-title-card-container">
+                            <div class="netflix-title-card" id="{{item.media_id}}">
+                                <title-card>
+
+                                </title-card>
+
+
+                            </div>
+                        </div>
+                        <div class="episode-title-container">
+                            <h2>{{item.title}}</h2>
+                            <p>{{item.description}}</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!--end episode selection slider-->
+
+    <div class="col-sm-6 channel_header">
+        <div class="row channel_title">
+            <h1>{{channel.channel_data.title}}</h1>
+        </div>
+        <div class="row channel_description">
+            <p>{{channel.channel_data.description}}</p>
+        </div>
+
+    </div>
+
+
+    <div class="col-sm-12">
+        <div class="netflix-main-row">
+            <div class="netflix-row-content">
+
+                <div owl-carousel="channel.media">
+
+
+                    <div class="netflix-slider-item">
+                        <div class="item video-item">
+                            <div class="netflix-title-card-container">
+                                <div class="netflix-title-card">
+                                    <img src="{{item.thumbnails[0].url}}" class="img-responsive">
+
+                                </div>
+                                <div class="description-card" ng-show="description">
+                                    <div class="episode_title">
+                                        {{item.title}}
+                                    </div>
+                                    <div class="episode_description">
+                                       <p>{{item.description}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="container-fluid nopad channel-background-image">
+    <div class="container ">
+    <div class="row">
+        <div class="col-xs-12">
+            <limelightplayer media="{{currentEpisode.media_id}}" ui-if="rerenderPlayer"></limelightplayer>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 channel-episode-sub-description">
+            <h3>{{currentEpisode.season.title}}</h3>
+            <h1>{{currentEpisode.title}}</h1>
+            <div class="col-sm-9 nopad">
+                <p>{{currentEpisode.description}}</p>
+            </div>
+
+
+
+        </div>
+    </div>
+
+    </div>
+
+</div>
+
+
+
