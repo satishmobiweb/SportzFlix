@@ -8,7 +8,10 @@
  * Controller of the sportzflixApp
  */
 angular.module('sportzflixApp')
-  .controller('AddpaymentCtrl', function ($scope, $http, paymentmethodservice, user, $location, $route) {
+  .controller('AddpaymentCtrl', function ($scope, $http, paymentmethodservice, $location, $route, auth) {
+
+        $scope.profile = auth.profile;
+
     //used to log cc data before tokeniztion by stripe
   $scope.card = {}
   $scope.cardHasError = false
@@ -27,13 +30,14 @@ angular.module('sportzflixApp')
     } else {
         //call to serveryo
         console.log(result)
-        console.log(user)
-        $scope.chargeCard = paymentmethodservice.handleCreditCard(result.id,user.current.user_id).then(function(response){
+
+        $scope.chargeCard = paymentmethodservice.handleCreditCard(result.id,auth.profile.user_id).then(function(response){
 
             $scope.paymentSuccessData = response.data;
             console.log($scope.paymentSuccessData);
-            user.getCurrent().then(function(currentUser){
-                $scope.paymentSuccess = true;
+            auth.getProfile().then(function(){
+                $location.path('/profile');
+
             })
 
         }, function(result){
@@ -52,15 +56,15 @@ angular.module('sportzflixApp')
 $scope.paypalOptions = {
                onPaymentMethodReceived: function(payload) {
                  console.log('Yay, payload with nonce:', payload);
-                 $scope.callPaypal = paymentmethodservice.handlePayPal(payload.nonce, user.current.user_id, payload.details.email)
+                 $scope.callPaypal = paymentmethodservice.handlePayPal(payload.nonce, auth.profile.user_id, payload.details.email)
 
                  .then(function(response){
 
                      $scope.paymentSuccessData = response.data;
                      console.log($scope.paymentSuccessData);
-                    user.getCurrent().then(function(currentUser){
+
                         $scope.paypalSuccess = true;
-                    })
+
                  } , function(response){
                      if(response.status == 400){
                          $scope.errorMessage = response.data;
@@ -75,7 +79,6 @@ $scope.paypalOptions = {
 
 
 
-        $('body').css('background', 'none');
-        $('body').css('background-color', '#333');
+
 
   });

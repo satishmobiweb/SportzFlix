@@ -21,10 +21,11 @@
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
+    <!-- build:css(.tmp) styles/front-page.css -->
+    <link rel="stylesheet" href="styles/front-page.css">
     <link rel="stylesheet" href="styles/main.css">
-        <link rel="stylesheet" href="styles/front-page.css">
 
-    <link rel="stylesheet" href="styles/owl.carousel.css">
+
     <!-- endbuild -->
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.css">
@@ -42,7 +43,7 @@
 <!-- logged in-->
 
 
-<div class="container-fluid nopad">
+<div class="">
     <div ng-view=""></div>
 </div>
 
@@ -106,6 +107,16 @@
 <script src="bower_components/humanize-duration/humanize-duration.js"></script>
 <script src="bower_components/angular-timer/dist/angular-timer.js"></script>
 <script src="bower_components/angular-easyfb/build/angular-easyfb.js"></script>
+<script src="bower_components/angular-slick-carousel/dist/angular-slick.js"></script>
+<script src="bower_components/angular-cbuffer/angular-cbuffer.js"></script>
+<script src="bower_components/matchmedia/matchMedia.js"></script>
+<script src="bower_components/matchmedia-ng/matchmedia-ng.js"></script>
+<script src="bower_components/auth0.js/build/auth0.js"></script>
+<script src="bower_components/auth0-lock/build/auth0-lock.js"></script>
+<script src="bower_components/auth0-angular/build/auth0-angular.js"></script>
+<script src="bower_components/angular-storage/dist/angular-storage.js"></script>
+<script src="bower_components/angular-jwt/dist/angular-jwt.js"></script>
+<script src="bower_components/a0-angular-storage/dist/angular-storage.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 
@@ -144,6 +155,8 @@
 <script src="scripts/directives/subdescription.js"></script>
 <script src="scripts/controllers/liveevent.js"></script>
 <script src="scripts/directives/event-card.js"></script>
+<script src="scripts/directives/carousel-lite.js"></script>
+<script src="scripts/controllers/login.js"></script>
 <!-- endbuild -->
 
 <script src="https://app.userapp.io/js/userapp.client.js"></script>

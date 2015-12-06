@@ -8,18 +8,28 @@
  * Controller of the sportzflixApp
  */
 angular.module('sportzflixApp')
-  .controller('ProfileCtrl', function ($scope, profilemanagement, user, $modal, $window) {
+  .controller('ProfileCtrl', function ($scope, profilemanagement, $modal, $window, auth) {
 
     $("body").css('background', 'none');
       $("body").css('background-color', '#212121');
 
-    $scope.currentUser = user.current
 
+    $scope.auth = auth;
 
-    profilemanagement.getProfile(user.current.user_id).success(function(d){
+        //grab the auth0 info and then use that to hit the profile endpoint on our api
+      auth.getProfile().then(function(p){
+
+            profilemanagement.getProfile(p.user_id).success(function(d){
       $scope.profile = d
       console.log('profile', $scope.profile)
+
     });
+
+
+
+        })
+
+
 
 
       //update email modal stuff
@@ -32,7 +42,7 @@ angular.module('sportzflixApp')
            backdropClass: 'modal-background',
            resolve: {
              user: function () {
-               return user.current;
+               return auth.profile;
              }
            }
 
@@ -40,7 +50,7 @@ angular.module('sportzflixApp')
          })
 
          emailModalInstance.result.then(function (result) {
-          $scope.currentUser.email = result
+            auth.profile.email = result
           console.log(result)
 
           }, function () {
@@ -60,7 +70,7 @@ angular.module('sportzflixApp')
            controller: 'ChangepasswordCtrl',
            resolve: {
              user: function () {
-               return user.current;
+               return auth.profile;
              }
            }
 
@@ -99,10 +109,16 @@ angular.module('sportzflixApp')
          })
 
          emailPreferenceModalInstance.result.then(function (result) {
-             profilemanagement.getProfile(user.current.user_id).success(function(d){
-            $scope.profile = d
-            console.log('profile', $scope.profile)
+             profilemanagement.getProfile(auth.user_id).success(function(d){
+
+
             });
+
+                  profilemanagement.getProfile(p.user_id).success(function(d){
+      $scope.profile = d
+      console.log('profile', $scope.profile)
+
+    });
 
 
           }, function () {
@@ -133,7 +149,7 @@ angular.module('sportzflixApp')
          })
 
          updateBillingModalInstance.result.then(function (result) {
-              profilemanagement.getProfile(user.current.user_id).success(function(d){
+              profilemanagement.getProfile(auth.user_id).success(function(d){
             $scope.profile = d
             console.log('profile', $scope.profile)
             });
@@ -168,7 +184,7 @@ angular.module('sportzflixApp')
          })
 
          cancelMembershipModalInstance.result.then(function (result) {
-              profilemanagement.getProfile(user.current.user_id).success(function(d){
+              profilemanagement.getProfile(auth.user_id).success(function(d){
             $scope.profile = d
 
 

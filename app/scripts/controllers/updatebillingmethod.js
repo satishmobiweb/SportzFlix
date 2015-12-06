@@ -8,7 +8,7 @@
  * Controller of the sportzflixApp
  */
 angular.module('sportzflixApp')
-  .controller('UpdatebillingmethodCtrl', function ($scope, $http, paymentmethodservice, user, $location, $route) {
+  .controller('UpdatebillingmethodCtrl', function ($scope, $http, paymentmethodservice, auth, $location, $route) {
     //used to log cc data before tokeniztion by stripe
   $scope.card = {}
   $scope.cardHasError = false
@@ -33,14 +33,13 @@ angular.module('sportzflixApp')
         window.alert('it failed! error: ' + result.error.message);
     } else {
         //call to serveryo
-        console.log(result)
-        console.log(user)
-        $scope.chargeCard = paymentmethodservice.handleCreditCard(result.id,user.current.user_id).then(function(response){
+
+        $scope.chargeCard = paymentmethodservice.handleCreditCard(result.id, auth.profile.user_id).then(function(response){
 
             $scope.paymentSuccessData = response.data;
-            console.log($scope.paymentSuccessData);
-            user.getCurrent().then(function(currentUser){
-                $scope.$close();
+
+            auth.getProfile().then(function(){
+               $location.path('/profile');
 
             })
 
@@ -48,11 +47,7 @@ angular.module('sportzflixApp')
                 console.log(result.data)
 
             }
-
-
         )
-
-
     }
 };
 
@@ -60,14 +55,14 @@ angular.module('sportzflixApp')
 $scope.paypalOptions = {
                onPaymentMethodReceived: function(payload) {
                  console.log('Yay, payload with nonce:', payload);
-                 $scope.callPaypal = paymentmethodservice.handlePayPal(payload.nonce, user.current.user_id, payload.details.email)
+                 $scope.callPaypal = paymentmethodservice.handlePayPal(payload.nonce, auth.profile.user_id, payload.details.email)
 
                  .then(function(response){
 
                      $scope.paymentSuccessData = response.data;
                      console.log($scope.paymentSuccessData);
-                    user.getCurrent().then(function(currentUser){
-                        $scope.$close();
+                    auth.getProfile().then(function(){
+                        $location.path('/profile');
                     })
                  } , function(response){
                      if(response.status == 400){

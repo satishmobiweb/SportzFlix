@@ -7,8 +7,11 @@
  * # LiveeventCtrl
  * Controller of the sportzflixApp
  */
+
+
+
 angular.module('sportzflixApp')
-  .controller('LiveeventCtrl', function ($scope, $routeParams, limelightService,moment, $sce, user) {
+  .controller('LiveeventCtrl', function ($scope, $routeParams, limelightService,moment, $sce, user, profileUpdateService) {
      //set body background styles away from the stupid front page stuff
       $("body").css('background', 'none');
       $("body").css('background-color', '#212121');
@@ -52,8 +55,9 @@ angular.module('sportzflixApp')
 
       //notify the user by email the day of the event.
         $scope.notifyUser = function(event){
-            console.log('user', user.current.email)
-            limelightService.notifyUserOfEvent(event, user.current.email ).success(function(){
+            console.log('user', user)
+            profileUpdateService.signUpForEventNotification(user.current.user_id, event ).success(function(){
+                alert('You will be notified 24 hours before the event begins.')
 
             })
         }

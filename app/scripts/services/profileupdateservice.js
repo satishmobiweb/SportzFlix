@@ -11,12 +11,13 @@ angular.module('sportzflixApp')
   .service('profileUpdateService', function ($http, API_URL) {
     // AngularJS will instantiate a singleton by calling "new" on this function
     this.updateField = function(field, value, id){
-      console.log('id',id)
+
       var data = {
         field: field,
         value: value,
         userapp_id: id
       }
+
 
       return $http.post(API_URL + 'customers/update_profile/', data)
 
@@ -35,12 +36,13 @@ angular.module('sportzflixApp')
 
     }
 
-    this.changeEmailPreferences = function(form, userapp_id){
+    this.changeEmailPreferences = function(form, userapp_id, events){
       var data = {
         newsletter: form.newsletter,
         whats_new: form.whats_new,
         event_updates: form.event_updates,
-        userapp_id: userapp_id
+        userapp_id: userapp_id,
+        events: events
 
       }
 
@@ -64,6 +66,14 @@ angular.module('sportzflixApp')
 
       return $http.post(API_URL + 'customers/get_billing_history/', data);
 
+    }
+
+    this.signUpForEventNotification = function(userapp_id, event){
+      var data = {
+        userapp_id: userapp_id,
+        event: event
+      }
+      return $http.post(API_URL + 'customers/event_notification_signup/', data)
     }
 
 

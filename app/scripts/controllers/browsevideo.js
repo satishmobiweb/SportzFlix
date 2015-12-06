@@ -8,7 +8,9 @@
  * Controller of the sportzflixApp
  */
 angular.module('sportzflixApp')
-  .controller('BrowsevideoCtrl', function (limelightService, $scope, $modal, user, $location, $interval) {
+  .controller('BrowsevideoCtrl', function (limelightService, $scope, $modal, $location, $interval, auth) {
+
+        console.log(auth)
 
         //set body background styles away from front page functions
         $("body").css('background', 'none');
@@ -85,11 +87,12 @@ angular.module('sportzflixApp')
 
 
         //check auth and redirect
+        /*
         if (!user.hasPermission('access')){
             console.log('goaway')
             $location.path('/addpayment')
         }
-
+        */
 
         //grab the channel groups and channels from limelight1
         limelightService.getChannels().success(function(data){
@@ -149,8 +152,5 @@ angular.module('sportzflixApp')
         $location.path('/channel/1/1')
     }
 
-    //navigate to the clicked on event
-     $scope.goToEvent = function(item){
-        $location.path('/liveevent/' + item.id)
-    }
+
   });

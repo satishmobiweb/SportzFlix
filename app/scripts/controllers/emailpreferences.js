@@ -8,14 +8,42 @@
  * Controller of the sportzflixApp
  */
 angular.module('sportzflixApp')
-  .controller('EmailpreferencesCtrl', function ($scope, profileUpdateService, user) {
+  .controller('EmailpreferencesCtrl', function ($scope, profileUpdateService, user, auth) {
+
+
 
     $scope.form ={}
-      $scope.fields = [
+    $scope.formTwo = {}
+
+      //add events subscriptions to form
+          $scope.fieldsTwo = []
+
+          angular.forEach($scope.profile.subscribed_events, function (key, value) {
+            console.log('event', key)
+
+
+            var event = {
+              type: 'checkbox',
+              key: key.id,
+              defaultValue: 'checked',
+              templateOptions: {
+                type: 'checkbox',
+                label: key.title
+              }
+            };
+
+            $scope.fieldsTwo.push(event);
+            $scope.formTwo[key.id] = true;
+
+          })
+
+
+
+     $scope.fields = [
       {
         type: 'checkbox',
         key: 'newsletter',
-        defaultValue: $scope.profile.newsletter,
+        defaultValue:$scope.profile.newsletter,
         templateOptions:{
           type: 'checkbox',
           label: 'SportzFilx Monthly Newsletter',
@@ -45,10 +73,25 @@ angular.module('sportzflixApp')
       },
 
 
+
+
     ]
+
+
       $scope.submitPreferences = function(){
-        profileUpdateService.changeEmailPreferences($scope.form, user.current.user_id)
+        console.log($scope.form, $scope.formTwo)
+        profileUpdateService.changeEmailPreferences($scope.form, auth.profile.user_id, $scope.formTwo).success(function(){
+
+          $scope.$parent.profile.newsletter = $scope.form.newsletter;
+        $scope.$parent.profile.whats_new = $scope.form.whats_new;
+        $scope.$parent.profile.event_update = $scope.form.event_update;
         $scope.$close();
+        })
+
+
+
+
+
 
       }
 

@@ -1,0 +1,45 @@
+
+
+    <!--LEFT TOGGLE-->
+    <div class="netflix-slider-item toggle">
+        <div class="netflix-title-card-container">
+
+            <div class="toggle-container left" ng-click="toggleLeft()">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </div>
+
+        </div>
+    </div>
+
+    <div ng-repeat="item in displayedItems | orderBy: 'order_by'"  class="netflix-slider-item">
+
+        <div class="netflix-title-card-container">
+            <div class="netflix-title-card" id="{{item.id}}">
+
+                <overlay-box ng-click="goToEvent(item)" ng-if="event"></overlay-box>
+                <overlay-box ng-click="goToPlayer(item)" ng-if="!event"></overlay-box>
+                    </div>
+
+        </div>
+
+
+        <div class="episode-title-container">
+            <h2>{{item.title}}</h2>
+            <div ng-if="showDescription"><p>{{item.description}}</p></div>
+
+
+        </div>
+    </div>
+
+    <!--RIGHT TOGGLE-->
+    <div class="netflix-slider-item toggle">
+        <div class="netflix-title-card-container">
+
+            <div class="toggle-container right" ng-click="toggleRight()">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+            </div>
+
+        </div>
+    </div>
+
+</div>
