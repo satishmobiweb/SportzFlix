@@ -11,10 +11,8 @@
 
 
 angular.module('sportzflixApp')
-  .controller('LiveeventCtrl', function ($scope, $routeParams, limelightService,moment, $sce, user, profileUpdateService) {
-     //set body background styles away from the stupid front page stuff
-      $("body").css('background', 'none');
-      $("body").css('background-color', '#212121');
+  .controller('LiveeventCtrl', function ($scope, $routeParams, limelightService,moment, $sce, auth, profileUpdateService) {
+
 
       //variable that is set to true one event data has been grabbed
       $scope.eventDataSuccess = false;
@@ -55,8 +53,8 @@ angular.module('sportzflixApp')
 
       //notify the user by email the day of the event.
         $scope.notifyUser = function(event){
-            console.log('user', user)
-            profileUpdateService.signUpForEventNotification(user.current.user_id, event ).success(function(){
+
+            profileUpdateService.signUpForEventNotification(auth.profile.user_id, event ).success(function(){
                 alert('You will be notified 24 hours before the event begins.')
 
             })

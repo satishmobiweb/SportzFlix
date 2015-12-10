@@ -3,16 +3,11 @@
 
 <div class=" channel-header-background">
 
-    <!--
-    <div class="channel-page-header-photo-container">
-    <img src="{{channel.image}}" class="img-responsive" alt="{{channel.title}}">
-</div>
-    -->
 
     <div class="container">
         <!--begin season selection and title row-->
         <div class="row netflix-main-row">
-            <div class="col-sm-2 col-xs-12 channel-header-select-container">
+            <div class="col-sm-2 col-xs-12 channel-header-select-container hidden-xs">
                 <ui-select ng-model="currentSeason" on-select="grabEpisodesInSeason(channel.episodes, currentSeason)">
                     <ui-select-match>
                         <span ng-bind="$select.selected.title"></span>
@@ -28,14 +23,7 @@
         </div>
 
         <!--SCREEN DISPLAY FOR XS SIZE-->
-        <div class="row hidden-lg hidden-md hidden-sm" ng-repeat="row in chunkedEpisodesInCurrentSeason">
-            <div class="col-xs-6" ng-repeat="item in row">
-                <overlay-box></overlay-box>
-                <div class="channel-episode-sub-description">
-                    <h1>{{item.title}}</h1>
-                </div>
-            </div>
-        </div>
+
         <!--END-SCREEN-DISPLAY-FOR XS SIZE-->
 
         <!--end season selection and title row-->
@@ -80,3 +68,14 @@
 
 </div>
 <!--END PLAYER-->
+
+<!--EPISODE SELECTOR FOR MOBILE-->
+<div class="row hidden-lg hidden-md hidden-sm" ng-repeat="item in channel.episodes">
+            <div class="col-xs-12">
+                <overlay-box></overlay-box>
+                <div class="channel-episode-sub-description">
+                    <h1>{{item.title}}</h1>
+                </div>
+            </div>
+        </div>
+<!--END EPISODE SELECTOR FOR MOBILE-->

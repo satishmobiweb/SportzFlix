@@ -78,7 +78,7 @@ angular.module('sportzflixApp')
          })
 
          passwordModalInstance.result.then(function (result) {
-          $scope.currentUser.email = result
+          auth.profile.email = result
           console.log(result)
 
           }, function () {
@@ -109,12 +109,12 @@ angular.module('sportzflixApp')
          })
 
          emailPreferenceModalInstance.result.then(function (result) {
-             profilemanagement.getProfile(auth.user_id).success(function(d){
+             profilemanagement.getProfile(auth.profile.user_id).success(function(d){
 
 
             });
 
-                  profilemanagement.getProfile(p.user_id).success(function(d){
+                  profilemanagement.getProfile(auth.profile.user_id).success(function(d){
       $scope.profile = d
       console.log('profile', $scope.profile)
 
@@ -149,7 +149,7 @@ angular.module('sportzflixApp')
          })
 
          updateBillingModalInstance.result.then(function (result) {
-              profilemanagement.getProfile(auth.user_id).success(function(d){
+              profilemanagement.getProfile(auth.profile.user_id).success(function(d){
             $scope.profile = d
             console.log('profile', $scope.profile)
             });
@@ -184,7 +184,7 @@ angular.module('sportzflixApp')
          })
 
          cancelMembershipModalInstance.result.then(function (result) {
-              profilemanagement.getProfile(auth.user_id).success(function(d){
+              profilemanagement.getProfile(auth.profile.user_id).success(function(d){
             $scope.profile = d
 
 

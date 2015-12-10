@@ -1,32 +1,4 @@
-
-<!--
-<div class="navbar front-navbar" role="navigation">
-		<div class="container">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle front-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-                </button>
-				<div class="frontend-logo-container">
-					<a class="navbar-brand" href="/#/"><img class="img-responsive" src="images/sportzflixlogo.png"></a>
-				</div>
-
-			</div>
-
-
-			<div class="navbar-collapse collapse">
-			<ul class="nav navbar-nav navbar-right nav-front">
-				<li><a href="index.html#/signup">SIGN UP</a></li>
-				<li><a href="index.html#/login">SIGN IN</a></li>
-			</ul>
-			</div>
-		</div>
-
-	</div>
--->
-<link rel="stylesheet" href="styles/front-page.css">
+<div class="container">
 
 <div class="hdSpace">
 
@@ -41,20 +13,40 @@
 
         </ul>
 
-        <div class="netflix-right-nav">
-            <div class="netflix-nav-element">
+        <div class="netflix-right-nav-front">
+            <div class="netflix-nav-element hidden-xs">
                 <div class="profile-drop-down">
         <a class="profile-text" ng-click="signup()">SIGN UP</a>
                 </div>
             </div>
-        </div>
-		<div class="netflix-right-nav">
-            <div class="netflix-nav-element">
+
+            <div class="netflix-nav-element hidden-xs">
                 <div class="profile-drop-down">
        <a class="profile-text" ng-click="signin()">SIGN IN</a>
                 </div>
             </div>
         </div>
+
+
+         <div class="dropdown hidden-lg hidden-md hidden-sm"  style="outline:none;">
+
+
+                    <button class="btn btn-block btn-md btn-header" type="button" id="dropdownMenu1"
+                            data-toggle="dropdown" >
+
+
+                      <span class="glyphicon glyphicon-menu-hamburger puke-green"></span>
+                    </button>
+
+
+                    <ul class="dropdown-menu  pull-right" aria-labelledby="dropdownMenu1">
+                       <li><a ng-click="signin()" class="profile-dropdown-link">SIGN IN</a></li>
+                        <li > <a class="profile-dropdown-link" href="/#/" ng-click="signup()">SIGN UP</a></li>
+                    </ul>
+                </div>
+
+
     </div>
+</div>
 </div>
 </div>

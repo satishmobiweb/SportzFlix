@@ -8,7 +8,7 @@
  * Controller of the sportzflixApp
  */
 angular.module('sportzflixApp')
-    .controller('ChannelCtrl', function ($routeParams, limelightService, $scope, _, $filter, $window, $compile, $location, CBuffer) {
+    .controller('ChannelCtrl', function ($routeParams, limelightService, $scope, _, $filter, $window, $compile, $location) {
 
 
 
@@ -37,7 +37,6 @@ angular.module('sportzflixApp')
         var episodeId = $routeParams.episodeId;
         var channelId = $routeParams.channelId;
 
-
         //grab current episode from url var and assign appropriate season
         var grabEpisode = function (myArray, episodeNumber) {
             var obj = _.find(myArray, function (obj) {
@@ -45,7 +44,6 @@ angular.module('sportzflixApp')
             })
             return obj
         }
-
         //function to chunk data into two columns for cell phones
         function chunk(arr, size) {
             var newArr = [];
@@ -54,7 +52,6 @@ angular.module('sportzflixApp')
             }
             return newArr;
         }
-
         //filter through the episodes and grab only the one in the current season
         $scope.grabEpisodesInSeason = function (myArray, season) {
             console.log('grabbing episodes in season')
@@ -62,14 +59,11 @@ angular.module('sportzflixApp')
             angular.forEach(myArray, function (key, value) {
 
                 if (key.season.id == season.id) {
-                    episodes.push(key)
+                    episodes.push(key);
                 }
             })
-
             $scope.episodesInCurrentSeason = episodes;
             $scope.chunkedEpisodesInCurrentSeason = chunk(episodes, 2);
-
-
         }
 
         // fetch the channel and episode information from the server and set it to a scope variable
@@ -78,14 +72,12 @@ angular.module('sportzflixApp')
         $scope.grabData.success(function (data) {
 
             $scope.channel = data;
+            console.log($scope.channel);
             $scope.currentEpisode = grabEpisode($scope.channel.episodes, episodeId);
             $scope.currentSeason = $scope.currentEpisode.season;
-            $scope.grabEpisodesInSeason($scope.channel.episodes, $scope.currentSeason)
+            $scope.grabEpisodesInSeason($scope.channel.episodes, $scope.currentSeason);
             $scope.rerenderPlayer = true;
-
             $scope.episodesLoaded = true;
-
-
         })
 
 
@@ -93,9 +85,6 @@ angular.module('sportzflixApp')
         $scope.goToPlayer = function (episode, channel) {
 
             $scope.currentEpisode = episode;
-            $location.path("/channel/" + $scope.channel.id + '/' + $scope.currentEpisode.id)
-
+            $location.path("/channel/" + $scope.channel.id + '/' + $scope.currentEpisode.id);
         }
-
-
     });

@@ -13,8 +13,7 @@ angular.module('sportzflixApp')
         console.log(auth)
 
         //set body background styles away from front page functions
-        $("body").css('background', 'none');
-      $("body").css('background-color', '#212121');
+
 
         $scope.index = 0;
         //a selection of channels to display in the header carousel
@@ -95,7 +94,8 @@ angular.module('sportzflixApp')
         */
 
         //grab the channel groups and channels from limelight1
-        limelightService.getChannels().success(function(data){
+        $scope.getTheChannels = limelightService.getChannels()
+            $scope.getTheChannels.success(function(data){
             $scope.channels = data;
             console.log($scope.channels);
 
@@ -110,7 +110,7 @@ angular.module('sportzflixApp')
         //grab the events from the server
         limelightService.getLiveEvents().success(function(data){
             $scope.events = data;
-            console.log(data);
+            console.log('events',data);
             $scope.eventsLoaded = true;
         })
 
@@ -143,7 +143,9 @@ angular.module('sportzflixApp')
 
 
     //send person to the player episode page and passes the episode id.
+
         $scope.goToPlayer = function(item, channel){
+            console.log('go to player check', item, channel)
            $location.path('/channel/'+ channel.id + '/' + item.id);
         }
 

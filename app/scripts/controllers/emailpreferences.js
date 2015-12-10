@@ -8,7 +8,7 @@
  * Controller of the sportzflixApp
  */
 angular.module('sportzflixApp')
-  .controller('EmailpreferencesCtrl', function ($scope, profileUpdateService, user, auth) {
+  .controller('EmailpreferencesCtrl', function ($scope, profileUpdateService, auth) {
 
 
 

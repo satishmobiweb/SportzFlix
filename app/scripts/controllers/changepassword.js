@@ -8,7 +8,7 @@
  * Controller of the sportzflixApp
  */
 angular.module('sportzflixApp')
-  .controller('ChangepasswordCtrl', function ($scope, user, UserApp, profileUpdateService) {
+  .controller('ChangepasswordCtrl', function ($scope, auth, profileUpdateService) {
     $scope.form = {};
     $scope.badPassword = false;
     $scope.fields = [
@@ -35,7 +35,7 @@ angular.module('sportzflixApp')
 
     $scope.changePassword = function(){
       console.log()
-     profileUpdateService.changePassword($scope.form, user.current.user_id, user.token()).success(function(d){
+     profileUpdateService.changePassword($scope.form, auth.profile.user_id, auth.idToken).success(function(d){
        $scope.$close()
      }).error(function(){
        console.log('you fucked up your password')

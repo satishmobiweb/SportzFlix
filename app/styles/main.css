@@ -390,7 +390,7 @@ outline: none !important;
 }
 
 .profile-links{
-    color: #FBB03B !important;
+    color: red !important;
     text-decoration: none;
 }
 
@@ -725,7 +725,7 @@ position:absolute;
 
     z-index: 100;
     box-sizing: border-box;
-    padding: 0 4%;
+    padding: 0 0%;
     white-space: nowrap;
     display: flex;
     align-items: center;
@@ -1425,9 +1425,11 @@ width: 3rem;
 
 .toggle-container {
 
-    margin-top:80%;
+    margin-top:5%;
     display:block;
 }
+
+
 .toggle-container .left {
     margin-right: 20px;
     float: left;
@@ -1443,8 +1445,9 @@ width: 3rem;
 
 .toggle-container span{
     color:white;
-font-size: 2.5rem;
-font-weight: 200;
+font-size: 2rem;
+
+font-weight: 100;
 
 
 }

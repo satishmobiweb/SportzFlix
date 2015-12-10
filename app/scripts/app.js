@@ -40,7 +40,7 @@ angular
 
   ])
 
-    .constant('API_URL', 'http://127.0.0.1:8000/')
+    .constant('API_URL', 'https://calm-falls-3900.herokuapp.com/')
     .constant('clientTokenPath', 'https://calm-falls-3900.herokuapp.com/' + 'braintree_token')
     .constant('SOCIAL_PLUGINS', [
       'like', 'share-button', 'send', 'post', 'video',
@@ -208,6 +208,11 @@ $httpProvider.interceptors.push('jwtInterceptor')
     if ($location.$$path == '/about'){
 
     }
+
+    else if ($location.$$path == '/signup'){
+
+    }
+
     else {
         var token = store.get('token');
     if (token) {
@@ -217,10 +222,15 @@ $httpProvider.interceptors.push('jwtInterceptor')
         }
         if(auth.isAuthenticated){
             //check to see if user is current on payments and if not redirect them to add payment page
+            console.log('checking access', auth, auth.profile, auth.profile.user_metadata)
+            console.log('metadata', auth.profile.user_metadata)
             if (auth.profile.user_metadata == undefined){
                 $location.path('/addpayment')
             }
-            else if (auth.profile.user_metadata.access == false){
+
+            else if (auth.profile.user_metadata.access == true){}
+
+            else  {
                 $location.path('/addpayment')
             }
         }

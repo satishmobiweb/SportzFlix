@@ -5,13 +5,13 @@
         <div class="netflix-title-card-container">
 
             <div class="toggle-container left" ng-click="toggleLeft()">
-                <span class="glyphicon glyphicon-chevron-left"></span>
+                <img class="img-responsive" src="https://cdn2.iconfinder.com/data/icons/designers-and-developers-icon-set/32/short_arrow_left-512.png" style="height:96.1875px;">
             </div>
 
         </div>
     </div>
 
-    <div ng-repeat="item in displayedItems | orderBy: 'order_by'"  class="netflix-slider-item">
+    <div ng-repeat="item in displayedItems"  class="netflix-slider-item">
 
         <div class="netflix-title-card-container">
             <div class="netflix-title-card" id="{{item.id}}">
@@ -34,9 +34,8 @@
     <!--RIGHT TOGGLE-->
     <div class="netflix-slider-item toggle">
         <div class="netflix-title-card-container">
-
             <div class="toggle-container right" ng-click="toggleRight()">
-                <span class="glyphicon glyphicon-chevron-right"></span>
+                <img class="img-responsive" src="https://cdn2.iconfinder.com/data/icons/designers-and-developers-icon-set/32/short_arrow_right-512.png" style="height:96.1875px;">
             </div>
 
         </div>

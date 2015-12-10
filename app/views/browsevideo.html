@@ -1,11 +1,12 @@
 <div menu></div>
 
+<div cg-busy="getTheChannels"></div>
+
 <!--BEGIN HEADER CAROUSEL-->
 <div class="container-fluid carousel-container hidden-xs hidden-sm">
 
 
     <uib-carousel interval="7000">
-
         <uib-slide ng-repeat="image in carousels" template-url="views/cslide.html" active="slide.active">
             <div ng-click="goToCarousel(image)">
             <div class="carousel-image" ng-click="goToCarousel(image)" >
@@ -24,78 +25,38 @@
              <div class="carousel-overlay"></div>
                 </div>
         </uib-slide>
-
     </uib-carousel>
-
 </div>
 <!--END HEADER CAROUSEL-->
 
-<div class="container browse-video-container">
+<div class="container browse-video-container hidden-xs">
     <div class="netflix-main-row" ng-repeat="channel in channels | orderBy:'channel.title'">
         <h2 class="video-browse-headers">{{channel.title}}</h2>
         <div class="netflix-row-content">
             <carousel-lite items="channel.episodes" number-of-slides="3" channel="channel" show-description="false" event="false"></carousel-lite>
-            <!--
-            <slick dots="true" infinite="false" speed="300" slides-to-show="3" touch-move="false" slides-to-scroll="1" ng-if="eventsLoaded">
-                <div class="netflix-slider-item" ng-repeat="episode in channel.episodes | orderBy: 'order_by'">
-                    <div class="netflix-title-card-container">
-                            <div class="netflix-title-card" id="{{episode.id}}">
-                                <title-card></title-card>
-                            </div>
-                        </div>
-                        <div class="episode-title-container">
-                            <h2>{{episode.title}}</h2>
-                        </div>
-                </div>
-            </slick>
-            -->
+
         </div>
-        <!--REMOVED SUBDESCRIPTION STUFF-->
 
-        <!--
-        <div class="sub-description" id="{{channel.id}}">
-            <div class="description-close" ng-click="closeFocus(channel.id)">X</div>
-            <div class="description-main">
-
-
-                <div class="description-holder">
-                    <h1>{{currentFocus.title}}</h1>
-                    <p>{{currentFocus.description}}</p>
-                </div>
-
-                <div class="image-holder">
-                    <div class="description-play-button">
-                                                <span class="glyphicon glyphicon-play-circle" ng-click="playVideo(item.media_id)">
-                                                    </span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        -->
     </div>
 
-    <div class="netflix-main-row">
+    <div class="netflix-main-row" ng-if="events.length > 0">
         <h2 class="video-browse-headers">Live Events</h2>
 
         <div class="netflix-row-content">
             <carousel-lite items="events" number-of-slides="3" channel="channel" show-description="false" event="true"></carousel-lite>
-            <!--
-            <slick dots="true" infinite="false" speed="300" slides-to-show="3" touch-move="false" slides-to-scroll="1" ng-if="eventsLoaded">
 
-                <div class="netflix-slider-item" ng-repeat="event in events">
-                    <div class="netflix-title-card-container">
-                            <div class="netflix-title-card" id="{{event.id}}">
-                                <event-card></event-card>
-                            </div>
-                        </div>
-                        <div class="episode-title-container">
-                            <h2>{{event.title}}</h2>
-                        </div>
-                </div>
-
-            </slick>
-            -->
 </div>
 </div>
     </div>
+
+<!--BEGIN XS DEVICE BROWSE CONTAINER-->
+    <div class="container-fluid hidden-lg hidden-md hidden-sm">
+
+        <div class="row" ng-repeat="channel in channels" ng-click="goToPlayer(channel.episodes[0], channel)">
+            <h2 class="video-browse-headers">{{channel.title}}</h2>
+            <img class="img-responsive" src="{{channel.episodes[0].lead_thumbnail}}">
+        </div>
+    </div>
+<!--END XS DEVICE BROWSE CONTAINER-->
+
 <footer></footer>

@@ -148,7 +148,7 @@ body{
 
 .lead-text {
     /*describes the text behavior of the center content*/
-    margin-left: 30px;
+
     margin-top: 40px;
 }
 
@@ -408,15 +408,15 @@ border:none;
 
 
 .hdPinTargetFront{
-    position: fixed;
+    position: relative;
     top: 0;
     min-height: 100px;
     margin: 0;
-    margin-left: 15%;
-    width: 70%;
+
+    width: 100%;
     z-index: 100;
     box-sizing: border-box;
-    padding: 0 4%;
+    padding: 0 0%;
     white-space: nowrap;
     display: flex;
     align-items: center;
@@ -453,7 +453,7 @@ border:none;
     white-space: nowrap;
 }
 
-.netflix-right-nav{
+.netflix-right-nav-front{
     align-items: center;
     position: relative;
     font-size: 16px;
