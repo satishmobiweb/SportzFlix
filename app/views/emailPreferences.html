@@ -16,10 +16,25 @@
         <div class="modal-body">
 
 
-            <p>To opt-out of any communications from SportzFlix, simply uncheck the checkbox below.</p>
+            <p>To opt-out of any communications from GoSports, simply uncheck the checkbox below.</p>
            <formly-form model="form" fields="fields"></formly-form>
 
-        </div>
+
+            <h3>Live Event Notifications</h3>
+            <p>Uncheck the check box to unsubscribe from event notifications for that event.</p>
+            <form>
+                <div ng-repeat="item in fieldsTwo">
+                    <div class="checkbox">
+                        <label>
+                        <input ng-model="formTwo[item.key]" type="{{item.type}}" name="{{item.key}}" checked>{{item.templateOptions.label}}</label>
+                    </div>
+
+                </div>
+
+            </form>
+
+
+        </div>{{item.templateOptions.label}}</label>
         <div class="modal-footer">
             <button class="btn btn-primary" type="button" ng-click="submitPreferences()">OK</button>
 

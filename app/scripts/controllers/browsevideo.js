@@ -8,11 +8,25 @@
  * Controller of the sportzflixApp
  */
 angular.module('sportzflixApp')
-  .controller('BrowsevideoCtrl', function (limelightService, $scope, $modal, user, $location, $interval) {
+  .controller('BrowsevideoCtrl', function (limelightService, $scope, $modal, $location, $interval, auth) {
+
+        //make sure user has access granted in profile
+        auth.getProfile().then(function(p){
+
+            if(p.user_metadata == undefined){
+                $location.path('/addpayment');
+            }
+            else if (p.user_metadata.access == undefined || p.user_metadata.access == false){
+                $location.path('/addpayment');
+            }
+            else{
+
+            }
+
+        })
 
         //set body background styles away from front page functions
-        $("body").css('background', 'none');
-      $("body").css('background-color', '#212121');
+
 
         $scope.index = 0;
         //a selection of channels to display in the header carousel
@@ -37,7 +51,7 @@ angular.module('sportzflixApp')
                     $('.image-holder').css('background-image', 'url("images/Gradientprv.png"), url("' + item.thumbs[count] + '")')
                     count = count + 1;
                 }
-                    console.log('count', count)
+
             }, 4000, [3])
 
         }
@@ -45,7 +59,6 @@ angular.module('sportzflixApp')
         //clears all the netflix title cards of their selected white border status
         var clearSelections = function(){
             var result = document.getElementsByClassName("netflix-title-card");
-            console.log(result);
             angular.forEach(result, function(value, key){
                 $('#'+value.id).css('border', '2px solid black')
             })
@@ -55,8 +68,6 @@ angular.module('sportzflixApp')
 
         //set current foucs
         $scope.setFocus = function(item, channel){
-            console.log(item)
-            console.log('set focus')
             $scope.currentFocus = item;
             //set all other channel displays to none
             angular.forEach($scope.channels, function(value,key){
@@ -84,30 +95,23 @@ angular.module('sportzflixApp')
         }
 
 
-        //check auth and redirect
-        if (!user.hasPermission('access')){
-            console.log('goaway')
-            $location.path('/addpayment')
-        }
-
 
         //grab the channel groups and channels from limelight1
-        limelightService.getChannels().success(function(data){
+        $scope.getTheChannels = limelightService.getChannels()
+            $scope.getTheChannels.success(function(data){
             $scope.channels = data;
-            console.log($scope.channels);
+
 
         })
 
         //grab the header carousel images
         limelightService.getCarousels().success(function(data){
             $scope.carousels = data;
-            console.log($scope.carousels)
         });
 
         //grab the events from the server
         limelightService.getLiveEvents().success(function(data){
             $scope.events = data;
-            console.log(data);
             $scope.eventsLoaded = true;
         })
 
@@ -120,37 +124,18 @@ angular.module('sportzflixApp')
 
         }
 
-        //play the video in a pop up modal when the user clicks on the image
-      $scope.playVideo = function(videoId){
-        console.log('playVideo')
-        $scope.currentVideo = videoId
-
-
-        var modalInstance = $modal.open({
-      templateUrl: 'views/modalplayer.html',
-      controller: 'ModalplayerCtrl',
-             resolve: {
-      currentVideo: function () {
-        return $scope.currentVideo;
-      },
-      backdrop: false
-    }
-      })
-    }
-
 
     //send person to the player episode page and passes the episode id.
+
         $scope.goToPlayer = function(item, channel){
            $location.path('/channel/'+ channel.id + '/' + item.id);
         }
 
     //navigate to the clicked on carousel item
     $scope.goToCarousel = function(cr){
-        $location.path('/channel/1/1')
+        console.log('carouselldata', cr.link)
+        $location.path(cr.link)
     }
 
-    //navigate to the clicked on event
-     $scope.goToEvent = function(item){
-        $location.path('/liveevent/' + item.id)
-    }
+
   });

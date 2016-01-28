@@ -8,7 +8,7 @@
  * Controller of the sportzflixApp
  */
 angular.module('sportzflixApp')
-  .controller('ChangeemailCtrl', function ($scope, profileUpdateService, user, UserApp) {
+  .controller('ChangeemailCtrl', function ($scope, profileUpdateService,auth, $route) {
     $scope.form = {};
     $scope.fields = [
       {
@@ -22,14 +22,21 @@ angular.module('sportzflixApp')
       }
     ]
 
+
+      auth.getProfile().then(function(d){
+        $scope.auth = d;
+        console.log('emailauth', $scope.auth)
+      })
+
     $scope.changeEmail = function (){
-      UserApp.User.save({
-          user_id: user.current.user_id,
-          email: $scope.form.email
-    });
-      user.getCurrent().then(function(result){
-        $scope.$close($scope.form.email)
-      });
+      profileUpdateService.updateField('email', $scope.form.email, $scope.auth.user_id).success(function(){0
+        $route.reload();
+      })
+
+          auth.getProfile().then(function(){
+            $scope.$close($scope.form.email)
+          })
+
 
 
     }

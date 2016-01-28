@@ -6,7 +6,7 @@
             <div class="col-sm-4">
                 <p class="puke-green" id="membership_and_billing_header">MEMBERSHIP AND BILLING</p>
 
-                <p>Member Since: <span>{{user.created_at * 1000 | amDateFormat:'dddd, MMMM Do YYYY'}}</span></p>
+                <p>Member Since: <span>{{auth.profile.created_at | amDateFormat:'dddd, MMMM Do YYYY'}}</span></p>
                 <br>
 
                 <div class="hidden-sm hidden-xs">
@@ -25,9 +25,9 @@
             <div class="col-sm-8">
                 <div class="row profile-row">
                     <div class="col-sm-8">
-                        <p>Name: {{user.first_name}} {{user.last_name}}</p>
+                        <p>Name: {{auth.profile.user_metadata.first_name}} {{auth.profile.user_metadata.last_name}}</p>
 
-                        <p>Email: {{currentUser.email}}</p>
+                        <p>Email: {{auth.profile.user_metadata.email}}</p>
 
                         <p>Password: *********</p>
                     </div>
