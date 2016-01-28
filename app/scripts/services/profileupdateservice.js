@@ -76,5 +76,26 @@ angular.module('sportzflixApp')
       return $http.post(API_URL + 'customers/event_notification_signup/', data)
     }
 
+    this.updateNameAndEmail = function(user_id, first_name, last_name, email){
+      var data = {
+        user_id:user_id,
+        first_name:first_name,
+        last_name:last_name,
+        email: email
+      }
+      return $http.post(API_URL + 'customers/confirm_email_and_name/', data)
+    }
+
+    this.updateUserSports = function(user_id, sport_one, sport_two, sport_three)  {
+      var data = {
+        user_id: user_id,
+        sport_one: sport_one,
+        sport_two: sport_two,
+        sport_three: sport_three
+      }
+
+      return $http.post(API_URL + 'customers/update_user_sports/', data)
+    }
+
 
   });

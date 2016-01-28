@@ -8,12 +8,13 @@
         <a class="nflix-logo" href="/#/">
         <img class="img-responsive" src="images/gosportslogo.png">
         </a>
-        <ul class="netflix-ul pull-right">
-        </ul>
-        <div class="netflix-right-nav">
+
+        <div class="netflix-right-nav pull-right">
+          <div class="netflix-nav-element">
+            <input type="search" ng-model ='search'><button class="btn btn-block">SEARCH</button>
             <div class="netflix-nav-element">
                 <div class="profile-drop-down hidden-xs">
-        <span class="profile-text">Hi {{auth.profile.name}}</span>
+        <span class="profile-text">Hi {{auth.profile.name | capitalize}}</span>
                 </div>
             </div>
 

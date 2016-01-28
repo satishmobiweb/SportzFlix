@@ -17,7 +17,7 @@
                     </ui-select-choices>
                 </ui-select>
             </div>
-            <div class="col-sm-7 col-sm-offset-3 col-xs-12">
+            <div class="col-sm-7 col-sm-offset-1 col-xs-12">
                 <h1>{{channel.title | uppercase }}</h1>
             </div>
         </div>
@@ -33,7 +33,7 @@
 
         <div class="netflix-main-row hidden-xs">
             <div class="netflix-row-content">
-                <carousel-lite items="episodesInCurrentSeason" number-of-slides="4" channel="channel" show-description="true"></carousel-lite>
+                <carousel-lite items="episodesInCurrentSeason" number-of-slides="4" channel="channel" show-description="true" ng-if="episodesLoaded"></carousel-lite>
             </div>
         </div>
         <!--end episode selection slider-->

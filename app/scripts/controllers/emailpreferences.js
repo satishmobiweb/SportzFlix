@@ -46,7 +46,7 @@ angular.module('sportzflixApp')
         defaultValue:$scope.profile.newsletter,
         templateOptions:{
           type: 'checkbox',
-          label: 'SportzFilx Monthly Newsletter',
+          label: 'Gosports Monthly Newsletter',
 
         }
       },

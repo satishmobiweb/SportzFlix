@@ -25,9 +25,9 @@
             <div class="col-sm-8">
                 <div class="row profile-row">
                     <div class="col-sm-8">
-                        <p>Name: {{auth.profile.given_name}} {{auth.profile.family_name}}</p>
+                        <p>Name: {{auth.profile.user_metadata.first_name}} {{auth.profile.user_metadata.last_name}}</p>
 
-                        <p>Email: {{auth.profile.email}}</p>
+                        <p>Email: {{auth.profile.user_metadata.email}}</p>
 
                         <p>Password: *********</p>
                     </div>

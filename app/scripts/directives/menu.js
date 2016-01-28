@@ -14,6 +14,7 @@ angular.module('sportzflixApp')
     .controller('MenuCtrl',
 function ($scope,  auth, store, $location) {
 
+  $scope.search = ''
 console.log('menuauth', auth)
   $scope.auth = auth;
 
@@ -30,6 +31,10 @@ $scope.signout = function () {
 
 }
 
+$scope.search = function(){
+$location.path('/search/' + $scope.search)
+
+}
 
 
 })

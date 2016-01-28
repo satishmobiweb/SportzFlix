@@ -35,11 +35,11 @@ angular
         'cbuffer',
         'matchmedia-ng',
         'angular-storage',
-        'angular-jwt'
+        'angular-jwt',
+        'ngMessages'
 
 
   ])
-
     .constant('API_URL', 'https://calm-falls-3900.herokuapp.com/')
     .constant('clientTokenPath', 'https://calm-falls-3900.herokuapp.com/' + 'braintree_token')
     .constant('SOCIAL_PLUGINS', [
@@ -154,6 +154,11 @@ angular
       controllerAs: 'liveevent',
       requiresLogin: true
     })
+    .when('/search/:searchTerm', {
+      templateUrl: 'views/search.html',
+      controller: 'SearchCtrl',
+      controllerAs: 'search'
+    })
     .otherwise({
       redirectTo: '/',
       requiresLogin: true
@@ -163,12 +168,13 @@ angular
 authProvider.init({
   domain: 'gosports.auth0.com',
   clientID: 'PJ0puLFzjMUXuKhipWOcGREsONuHB0F4',
-  loginUrl: '/about'
+  loginUrl: '/about',
+  callbackUrl: location.href,
+
 
 });
 
  authProvider.on('loginSuccess', function($location, profilePromise, idToken, store) {
-    console.log("Login Success");
     profilePromise.then(function(profile) {
       store.set('profile', profile);
       store.set('token', idToken);
@@ -181,12 +187,11 @@ authProvider.init({
   });
 
   authProvider.on('authenticated', function($location) {
-    console.log("Authenticated");
+
 
   });
 
   authProvider.on('logout', function($location) {
-    console.log("Logged out");
     $location.path('/about');
   })
 
@@ -221,18 +226,30 @@ $httpProvider.interceptors.push('jwtInterceptor')
           auth.authenticate(store.get('profile'), token);
         }
         if(auth.isAuthenticated){
+
+            auth.getProfile().then(function(){
+
+
             //check to see if user is current on payments and if not redirect them to add payment page
-            console.log('checking access', auth, auth.profile, auth.profile.user_metadata)
-            console.log('metadata', auth.profile.user_metadata)
             if (auth.profile.user_metadata == undefined){
+                console.log('shit was not defined')
+
+
+
                 $location.path('/addpayment')
             }
 
-            else if (auth.profile.user_metadata.access == true){}
+            else if (auth.profile.user_metadata.access == true){
+                console.log('access is true')
+            }
 
             else  {
+                console.log('access is false')
                 $location.path('/addpayment')
             }
+
+
+            })
         }
       } else {
         // Either show the login page or use the refresh token to get a new idToken

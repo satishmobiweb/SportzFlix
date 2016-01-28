@@ -24,12 +24,6 @@ angular.module('sportzflixApp')
 
 
 
-
-        $scope.rerenderEpisodes = function () {
-
-        };
-
-
         //var used in rerenderingEpisodes on the carousel
         $scope.rerenderPlayer = false;
 
@@ -54,7 +48,7 @@ angular.module('sportzflixApp')
         }
         //filter through the episodes and grab only the one in the current season
         $scope.grabEpisodesInSeason = function (myArray, season) {
-            console.log('grabbing episodes in season')
+            console.log('grabbing episodes in season', myArray, season)
             var episodes = []
             angular.forEach(myArray, function (key, value) {
 
@@ -63,7 +57,11 @@ angular.module('sportzflixApp')
                 }
             })
             $scope.episodesInCurrentSeason = episodes;
+          console.log('episodes in season', $scope.episodesInCurrentSeason)
+
             $scope.chunkedEpisodesInCurrentSeason = chunk(episodes, 2);
+           $scope.episodesLoaded = false;
+            $scope.episodesLoaded = true;
         }
 
         // fetch the channel and episode information from the server and set it to a scope variable
@@ -72,11 +70,13 @@ angular.module('sportzflixApp')
         $scope.grabData.success(function (data) {
 
             $scope.channel = data;
+            console.log('currentSeason' , data);
             console.log($scope.channel);
             $scope.currentEpisode = grabEpisode($scope.channel.episodes, episodeId);
             $scope.currentSeason = $scope.currentEpisode.season;
             $scope.grabEpisodesInSeason($scope.channel.episodes, $scope.currentSeason);
             $scope.rerenderPlayer = true;
+
             $scope.episodesLoaded = true;
         })
 

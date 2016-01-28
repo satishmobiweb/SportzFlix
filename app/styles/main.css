@@ -33,8 +33,10 @@ html{
     }
 
     /* Large Devices, Wide Screens */
-    @media only screen and (min-width : 1200px) {
-
+    @media only screen and (min-width : 1350px) {
+        .container{
+            width:1350px;
+        }
     }
 
 
@@ -75,9 +77,10 @@ html{
     width:100%;
     height:4px;
     background-color: red;
-    position: absolute;
+    position: fixed;
     top:0;
     left:0;
+    z-index:300;
 }
 
 .main-header{
@@ -219,9 +222,7 @@ outline: none !important;
 .form-signin .form-control {
   position: relative;
   height: auto;
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   padding: 10px;
   font-size: 16px;
 }
@@ -397,7 +398,7 @@ outline: none !important;
 /* MODAL POPUP STYLES */
 .modal-backdrop{
     background-color: #d9d9d9;
-    opacity:1.0 !important;
+    opacity:0.4 !important;
 
 }
 
@@ -405,8 +406,6 @@ outline: none !important;
     margin-top: 50%;
     border:none;
     border-radius: 0px;
-    -webkit-box-shadow: 0 5px 15px rgba(0,0,0,0);
-    -moz-box-shadow: 0 5px 15px rgba(0,0,0,0);
     -o-box-shadow: 0 5px 15px rgba(0,0,0,0);
     box-shadow: 0 5px 15px rgba(0,0,0,0);
         font-family: pt-sans, sans-serif;
@@ -683,6 +682,20 @@ position:absolute;
     display: none;
 }
 
+.carousel-captioner{
+    position:relative;
+    float:left;
+        z-index: 10;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #fff;
+    text-align: center;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
+    margin-top:380px;
+    margin-left:8px;
+    width:60%;
+}
+
 .carousel-overlay{
     background: linear-gradient(to bottom,rgba(25,25,25,0) ,#191919 100%);
     background-size:cover;
@@ -727,8 +740,10 @@ position:absolute;
     box-sizing: border-box;
     padding: 0 0%;
     white-space: nowrap;
+    display: -webkit-flex;
     display: flex;
-    align-items: center;
+    -webkit-align-items: center;
+            align-items: center;
     color: #fff;
     font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
     font-size: 10px;
@@ -765,9 +780,11 @@ position:absolute;
 }
 
 .netflix-right-nav{
-    align-items: center;
+    -webkit-align-items: center;
+            align-items: center;
     position: absolute;
     font-size: 16px;
+    display: -webkit-flex;
     display: flex;
     -webkit-box-align: center;
     top:30%;
@@ -799,21 +816,24 @@ position:absolute;
 .profile-drop-down-button{
         width: 100%;
     cursor: pointer;
-        align-items: center;
+        -webkit-align-items: center;
+                align-items: center;
+        display: -webkit-flex;
         display: flex;
     -webkit-box-align: center;
 }
 
 .profile-link{
     position: relative;
+    display: -webkit-flex;
     display: flex;
-    align-items: center;
+    -webkit-align-items: center;
+            align-items: center;
 
 }
 
 .profile-text {
         overflow: hidden;
-    -o-text-overflow: ellipsis;
     text-overflow: ellipsis;
     margin-left: 6px;
     font-weight: 700;
@@ -843,7 +863,8 @@ span.glyphicon {
     margin: 0;
     padding: 0 4%;
     -webkit-box-flex: 1;
-    flex-grow: 1;
+    -webkit-flex-grow: 1;
+            flex-grow: 1;
     list-style-type: disc;
     -webkit-margin-before: 1em;
     -webkit-margin-after: 1em;
@@ -918,6 +939,7 @@ span.glyphicon {
 }
 
 .netflix-row-container{
+    transition: -webkit-transform .54s cubic-bezier(0.5,0,.1,1) 0s;
     transition: transform .54s cubic-bezier(0.5,0,.1,1) 0s;
         position: relative;
     z-index: 0;
@@ -1052,11 +1074,14 @@ color:white;
 .footer-container ul{
     width:100%;
         font-size: 13px;
+    display: -webkit-flex;
     display: flex;
-        flex-direction: row;
+        -webkit-flex-direction: row;
+                flex-direction: row;
             -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
-    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+            flex-wrap: wrap;
     -webkit-box-align: start;
 
 
@@ -1064,7 +1089,8 @@ color:white;
 }
 
 .footer-container li{
-        flex-basis: 15%;
+        -webkit-flex-basis: 15%;
+                flex-basis: 15%;
         list-style-type: none;
     -webkit-box-flex: 0;
 
@@ -1339,12 +1365,17 @@ word-wrap: break-word;
     background-size:cover;
      content: ' ';
     display: block;
-    position: fixed;
+    position: absolute;
+    top:130px;
     width: 100%;
     height:425px;
     z-index: -1;
     opacity: 0.9;
 
+}
+
+.below-event-photo{
+    margin-top:110px;
 }
 
 .countdown-container{
@@ -1390,7 +1421,7 @@ line-height: 17px;
 .live-now-header-bar{
     z-index: 20;
     min-height: 45px;
-    background-color: #9DC349;
+    background-color: red;
     padding-bottom: 9px;
     padding-top:9px;
     text-align: center;
@@ -1406,7 +1437,7 @@ line-height: 17px;
 
 .live-video-container{
   width:520px;
-  margin: 0 auto 0 auto;
+  margin: 0 auto 0 20%;
 }
 
 .facebook-style{
@@ -1475,8 +1506,10 @@ font-weight: 100;
     box-sizing: border-box;
     padding: 0 4%;
     white-space: nowrap;
+    display: -webkit-flex;
     display: flex;
-    align-items: center;
+    -webkit-align-items: center;
+            align-items: center;
     color: #fff;
     font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
     font-size: 10px;
@@ -1486,9 +1519,11 @@ font-weight: 100;
 
 
 .netflix-right-nav{
-    align-items: center;
+    -webkit-align-items: center;
+            align-items: center;
     position: absolute;
     font-size: 16px;
+    display: -webkit-flex;
     display: flex;
     -webkit-box-align: center;
     top:25%;
@@ -1507,3 +1542,47 @@ font-weight: 100;
     /* link styles */
     color:red;
 }
+
+/*login widget styles*/
+ .widget-container{
+
+      background-color:#F4F4F4;
+    }
+
+    .a0-footer{
+      display:none !important;
+    }
+
+    .a0-avatar{
+      display:none !important;
+    }
+
+
+    button.a0-primary{
+    background-color:red !important;
+    }
+
+    .a0-zocial.a0-guest {
+    background-color: red !important;
+}
+
+.location{
+    text-align: center;
+}
+
+.gosports-button{
+    background-color: red;
+    width: 100%;
+
+}
+
+.gosports-button-holder{
+    margin-left:auto;
+
+    width: 40%;
+    color:White;
+    font-size:1.4em;
+}
+
+
+/*search bar css*/

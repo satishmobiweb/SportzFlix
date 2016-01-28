@@ -13,7 +13,7 @@
                 <img ng-src="{{image.image}}" class="img-responsive" >
             </div>
             <div class="container">
-                <div class="carousel-caption" >
+                <div class="carousel-captioner" >
 
                 <div class="header-title">
                     <p>{{image.title}}</p>
@@ -30,14 +30,6 @@
 <!--END HEADER CAROUSEL-->
 
 <div class="container browse-video-container hidden-xs">
-    <div class="netflix-main-row" ng-repeat="channel in channels | orderBy:'channel.title'">
-        <h2 class="video-browse-headers">{{channel.title}}</h2>
-        <div class="netflix-row-content">
-            <carousel-lite items="channel.episodes" number-of-slides="3" channel="channel" show-description="false" event="false"></carousel-lite>
-
-        </div>
-
-    </div>
 
     <div class="netflix-main-row" ng-if="events.length > 0">
         <h2 class="video-browse-headers">Live Events</h2>
@@ -47,6 +39,15 @@
 
 </div>
 </div>
+
+    <div class="netflix-main-row" ng-repeat="channel in channels | orderBy:'channel.order_by'">
+        <h2 class="video-browse-headers">{{channel.title}}</h2>
+        <div class="netflix-row-content">
+            <carousel-lite items="channel.episodes" number-of-slides="3" channel="channel" show-description="false" event="false"></carousel-lite>
+        </div>
+    </div>
+
+
     </div>
 
 <!--BEGIN XS DEVICE BROWSE CONTAINER-->
@@ -59,4 +60,3 @@
     </div>
 <!--END XS DEVICE BROWSE CONTAINER-->
 
-<footer></footer>
