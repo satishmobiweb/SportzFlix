@@ -35,6 +35,19 @@ angular.module('sportzflixApp')
     }
 
 
+    this.grabEpisodesInSeason =  function (myArray, season) {
+      console.log('grabbing episodes in season', myArray, season)
+      var episodes = []
+      angular.forEach(myArray, function (key, value) {
+
+        if (key.season.id == season.id) {
+          episodes.push(key);
+        }
+      })
+      return episodes
+    }
+
+
 
 
 

@@ -14,7 +14,7 @@ angular.module('sportzflixApp')
   .controller('LiveeventCtrl', function ($scope, $routeParams, limelightService,moment, $sce, auth, profileUpdateService) {
 
 
-      //variable that is set to true one event data has been grabbed
+      //var that is set to true one event data has been grabbed
       $scope.eventDataSuccess = false;
       $scope.beforeEvent = false;
       $scope.eventIframe =  ''

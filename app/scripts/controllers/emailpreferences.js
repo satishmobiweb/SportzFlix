@@ -72,10 +72,7 @@ angular.module('sportzflixApp')
         }
       },
 
-
-
-
-    ]
+     ]
 
 
       $scope.submitPreferences = function(){

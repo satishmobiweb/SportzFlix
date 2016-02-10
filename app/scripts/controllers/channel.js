@@ -11,11 +11,6 @@ angular.module('sportzflixApp')
     .controller('ChannelCtrl', function ($routeParams, limelightService, $scope, _, $filter, $window, $compile, $location) {
 
 
-
-        //set body background styles away from the stupid front page stuff
-        $("body").css('background', 'none');
-        $("body").css('background-color', '#212121');
-
         //current episode and season vars
         $scope.currentSeason;
         $scope.currentEpisode;

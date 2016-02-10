@@ -10,6 +10,4 @@
 angular.module('sportzflixApp')
   .controller('SignupCtrl', function ($scope, $rootScope) {
 
-
-
   });

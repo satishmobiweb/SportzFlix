@@ -9,6 +9,8 @@
  */
 angular.module('sportzflixApp')
   .controller('ChangeemailCtrl', function ($scope, profileUpdateService,auth, $route) {
+
+    //SET UP FORM AND FORM FIELDS
     $scope.form = {};
     $scope.fields = [
       {
@@ -22,12 +24,13 @@ angular.module('sportzflixApp')
       }
     ]
 
-
+    //GRAB THE PROFILE
       auth.getProfile().then(function(d){
         $scope.auth = d;
         console.log('emailauth', $scope.auth)
       })
 
+    //SEND CHANGE EMAIL REQUEST
     $scope.changeEmail = function (){
       profileUpdateService.updateField('email', $scope.form.email, $scope.auth.user_id).success(function(){0
         $route.reload();
