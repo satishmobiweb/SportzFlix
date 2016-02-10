@@ -9,7 +9,9 @@
  */
 angular.module('sportzflixApp')
   .controller('UpdatebillingmethodCtrl', function ($scope, $http, paymentmethodservice, auth, $location, $route) {
-    //used to log cc data before tokeniztion by stripe
+
+
+  /*INIT SHOW HIDE SCOPE VARIABLE*/
   $scope.card = {}
   $scope.cardHasError = false
   $scope.paymentSuccess = false;
@@ -17,6 +19,8 @@ angular.module('sportzflixApp')
   $scope.showPaypalError = false;
   console.log($scope.profile)
 
+
+    /*FIND THE APPROPRIATE BILLING HINT*/
   if ($scope.profile.billing_method == "PayPal"){
     $scope.currentBillingMethod = 'PayPal account ' + $scope.profile.billing_hint;
 
@@ -27,6 +31,7 @@ angular.module('sportzflixApp')
 
   }
 
+  /*HANDLE STRIPE PAYMENT*/
  $scope.handleStripe = function (code, result) {
     if (result.error) {
         $scope.cardHasError = true;
@@ -51,7 +56,7 @@ angular.module('sportzflixApp')
     }
 };
 
-
+/*HANDLE PAYPAL PAYMENT*/
 $scope.paypalOptions = {
                onPaymentMethodReceived: function(payload) {
                  console.log('Yay, payload with nonce:', payload);

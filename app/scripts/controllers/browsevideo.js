@@ -11,6 +11,8 @@ angular.module('sportzflixApp')
   .controller('BrowsevideoCtrl', function (limelightService, $scope, $modal, $location, $interval, auth) {
 
         //make sure user has access granted in profile
+
+
         auth.getProfile().then(function(p){
 
             if(p.user_metadata == undefined){
@@ -25,75 +27,13 @@ angular.module('sportzflixApp')
 
         })
 
-        //set body background styles away from front page functions
-
 
         $scope.index = 0;
         //a selection of channels to display in the header carousel
-        $scope.headerChannels = []
-
-        //data binding for the currently broswed item;
-        $scope.currentFocus = {}
+        $scope.headerChannels = [];
 
         //events loaded var
         $scope.eventLoaded = false;
-
-
-        var rotateImage = function(item){
-
-            var count = 0;
-            $interval(function(){
-                if(count == 2){
-                    $('.image-holder').css('background-image', 'url("images/Gradientprv.png"), url("' + item.thumbs[count] + '")')
-                    count = 0;
-                }
-                else{
-                    $('.image-holder').css('background-image', 'url("images/Gradientprv.png"), url("' + item.thumbs[count] + '")')
-                    count = count + 1;
-                }
-
-            }, 4000, [3])
-
-        }
-
-        //clears all the netflix title cards of their selected white border status
-        var clearSelections = function(){
-            var result = document.getElementsByClassName("netflix-title-card");
-            angular.forEach(result, function(value, key){
-                $('#'+value.id).css('border', '2px solid black')
-            })
-        }
-
-
-
-        //set current foucs
-        $scope.setFocus = function(item, channel){
-            $scope.currentFocus = item;
-            //set all other channel displays to none
-            angular.forEach($scope.channels, function(value,key){
-
-                $('#'+value.id).css('display', 'none')
-            });
-            //set the channels background image
-
-            $('.image-holder').css('background-image', 'url("images/Gradientprv.png"),url("' + item.thumbs[0] + '")');
-            rotateImage(item)
-            //set the correct channels subdescription to display
-            $('#'+channel).css('display', 'block');
-
-            //make sure we unset the white border for any previously selected items.
-            clearSelections();
-
-            //set a white border on the selected item
-            $('#'+item.media_id).css('border', '4px solid white')
-
-        }
-
-        $scope.closeFocus = function(channelId) {
-            $('#'+channelId).css('display', 'none');
-            clearSelections()
-        }
-
 
 
         //grab the channel groups and channels from limelight1

@@ -10,7 +10,6 @@
 angular.module('sportzflixApp')
   .controller('CancelmembershipCtrl', function ($scope, profileUpdateService, auth) {
       $scope.cancellation = false
-    console.log('inner profile', $scope.profile)
       $scope.cancelMembership = function(){
         $scope.cancel = profileUpdateService.cancelMembership(auth.profile.user_id).success(function(){
           $scope.cancellation = true;
