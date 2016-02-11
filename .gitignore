@@ -3,3 +3,5 @@
 /.tmp
 /.sass-cache
 /bower_components
+/NodeJsWebApplication/nbproject/private/
+/nbproject/private/

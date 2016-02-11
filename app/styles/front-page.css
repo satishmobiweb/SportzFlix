@@ -8,23 +8,16 @@ body{
 
     background-color: #212121;
     font-size:18px;
+    font-family: 'PT Sans', sans-serif;
 }
-
-
 /*about page styles*/
-
-
-
-
 .top-wrapper{
     /*relative sized top wrapper a low z-index to fall behind things*/
     box-sizing: border-box;
     color:white;
     z-index: 0;
-
     width: 100%;
-    min-height:90vh;
-    max-height:95vh;
+    min-height:61vh;
 }
 
 .top-layover{
@@ -37,22 +30,6 @@ body{
     width:100%;
     z-index: 1;
 }
-
-.top-layover::before{
-    /*before that inserts the shading gradient over top of the images*/
-    position: absolute;
-      content: '';
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom:0;
-    z-index: 10;
-    background-image: linear-gradient(to right top, black, transparent);
-
-}
-
-
-
 .top-layover img{
     z-index: 1;
     opacity: 1;
@@ -64,10 +41,8 @@ body{
 
 .top-content-wrapper{
     /*absolute positioned div that contains the header text*/
-
-    margin: 5% 3%;
-    max-width: 33%;
-    font-size: 1.8vw;
+    margin: 5% auto;
+    max-width: 100%;
     z-index: 13;
     left: 0;
     position:relative;
@@ -75,16 +50,13 @@ body{
 }
 
 .top-content-wrapper h1{
-    font-size:1.8em;
+    font-size:3.5em;
     line-height: 1.1em;
 }
 
 .bottom-half-container{
-
     position:relative;
-    margin-top:-30vh;
     z-index: 20;
-
 }
 
 
@@ -99,13 +71,16 @@ body{
 
 .center-content{
     /*holds the actual center nav menu*/
-    background-color: black;
+    background: -moz-linear-gradient(to bottom, #dddcd6, #b9b8b4 100%);
+    background: -webkit-linear-gradient(to bottom, #dddcd6, #b9b8b4 100%);
+    background: -ms-linear-gradient(to bottom, #dddcd6, #b9b8b4 100%);
+    background: -o-linear-gradient(to bottom, #dddcd6, #b9b8b4 100%);
+    background: linear-gradient(to bottom, #dddcd6, #b9b8b4 100%);
     font-size:1.2vw;
-    border-bottom: 2px solid #3d3d3d;
-     border-top: 2px solid #3d3d3d;
     width: 100%;
     text-align:center;
-    color:white;
+    color:#3d3d3d;
+    padding: 6vh 0;
 
 }
 
@@ -135,7 +110,7 @@ body{
     color:white;
     display: block;
     position: relative;
-   height: 100%;
+    height: 100%;
     width: 100%;
     z-index: 20;
 
@@ -153,7 +128,8 @@ body{
 }
 
 .lead-text {
-     font-size:1vw;
+    font-size:1vw;
+    max-width: 85%;
 }
 
 
@@ -161,7 +137,6 @@ body{
 .jumbo-header{
     background-image: url("../images/impactbanner.png");
     background-size:cover;
-
     min-height: 40vh;
     max-height: 50vh;
     width:100%;
@@ -173,13 +148,11 @@ body{
 }
 
 .height-sizer{
-
     margin-top: 100px;
     z-index: 17;
 }
 
 .jumbo-header:before{
-
     content: '';
     top: 0;
     left: 0;
@@ -188,32 +161,20 @@ body{
     height: 50vh;
     width: 100%;
     background-image: -webkit-gradient(linear,left top,right top,color-stop(20%,rgba(0,0,0,.8)),color-stop(65%,rgba(0,0,0,0)));
-
     background-size: cover;
-
-
 }
-
-
-
-
 .middle-container-positioner{
     position: absolute;
     top:425px;
     left:0;
     width: 100%;
 }
-
-
 .front-middle-color {
     background:rgb(20, 20, 20);
     border-bottom:thick white solid;
     color:white;
     position:relative;
     display: block;
-
-
-
 }
 
 .off-white {
@@ -232,7 +193,7 @@ body{
 }
 
 .landing-header-item {
-        color: #FFFFFF;
+    color: #FFFFFF;
     line-height: 19px;
     text-align: center;
     font-size: 16px;
@@ -258,7 +219,7 @@ a:hover {
 
 
 .mid-item {
-text-align:center;
+    text-align:center;
     margin-top:40px;
 
 
@@ -301,9 +262,9 @@ p {
 .front-footer{
     background-color: #d9d9d9;
     width:100%;
-position:absolute;
-min-height:100% !important;
-height:auto;
+    position:absolute;
+    min-height:100% !important;
+    height:auto;
 
 
 
@@ -328,7 +289,7 @@ height:auto;
 }
 
 .footer-text{
-        line-height: 12px;
+    line-height: 12px;
     font-size: 12px;
     font-family: pt-sans, sans-serif;
     font-weight: 400;
@@ -337,9 +298,9 @@ height:auto;
 /*clear nav bar for front page*/
 
 .front-navbar, .nav-front, .nav:active{
-   background-color: transparent;
-   background: transparent;
-   border-color: transparent;
+    background-color: transparent;
+    background: transparent;
+    border-color: transparent;
 
 
 }
@@ -350,13 +311,13 @@ height:auto;
 }
 
 .navbar-collapse.in{
-border:none;
-overflow:visible;
+    border:none;
+    overflow:visible;
 
 }
 
 .navbar-collapse.in table{
-border:none;
+    border:none;
 
 
 }
@@ -462,7 +423,7 @@ border:none;
 }
 
 .netflix-nav-element{
-        margin: 0 25px 0 0;
+    margin: 0 25px 0 0;
 }
 
 .netflix-nav-element button{
@@ -483,10 +444,10 @@ border:none;
 
 
 .profile-drop-down-button{
-        width: 100%;
+    width: 100%;
     cursor: pointer;
-        align-items: center;
-        display: flex;
+    align-items: center;
+    display: flex;
     -webkit-box-align: center;
 }
 
@@ -498,7 +459,7 @@ border:none;
 }
 
 .profile-text {
-        overflow: hidden;
+    overflow: hidden;
     -o-text-overflow: ellipsis;
     text-overflow: ellipsis;
     margin-left: 6px;
@@ -546,161 +507,161 @@ span.glyphicon {
 }
 
 .netflix-ul a {
-        font-size: 16px;
+    font-size: 16px;
     color: #fff;
     text-decoration: none;
     cursor: pointer;
-        background-color: transparent;
+    background-color: transparent;
 }
 
 /* Extra Small Devices, Phones */
-    @media only screen and (max-width : 480px) {
+@media only screen and (max-width : 480px) {
 
 
-        html{
-            font-size:3vw;
-        }
+    html{
+        font-size:3vw;
+    }
 
-        h2{
-            font-size:3vw;
-        }
-
-
-        .top-wrapper{
-    /*relative sized top wrapper a low z-index to fall behind things*/
+    h2{
+        font-size:3vw;
+    }
 
 
-    width: 100%;
-    min-height:100vw;
-    max-height: 120vw;
-}
+    .top-wrapper{
+        /*relative sized top wrapper a low z-index to fall behind things*/
+
+
+        width: 100%;
+        min-height:100vw;
+        max-height: 120vw;
+    }
 
 
 
-        .top-layover::before{
-            position: absolute;
-      content: '';
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom:0;
-    z-index: 10;
-    background-image: linear-gradient(to bottom, black, transparent);
-
-        }
-
-        .top-content-wrapper{
-    /*absolute positioned div that contains the header text*/
-
-    margin: 1% 1%;
-    max-width: 100%;
-    font-size: 1vw !important;
-    z-index: 13;
-    left: 0;
-    position:relative;
-
-}
-
-  .lead-text h1{
-      font-size:24px;
-  }
-
-  .center-content{
-      font-size:4vw;
-  }
-
-  .bottom-half-container{
-      margin-top:-50px;
-  }
-
-  .hdPinTargetFront{
-    position: fixed;
-    top: 0;
-    min-height: 100px;
-    margin: 0;
-
-    width: 100%;
-    z-index: 100;
-    box-sizing: border-box;
-    padding: 0 4%;
-    white-space: nowrap;
-    display: flex;
-    align-items: center;
-    color: #fff;
-    font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
-    font-size: 10px;
-    -webkit-font-smoothing: antialiased;
-    background-color: transparent;
-
-}
-
-
+    .top-layover::before{
+        position: absolute;
+        content: '';
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom:0;
+        z-index: 10;
+        background-image: linear-gradient(to bottom, black, transparent);
 
     }
+
+    .top-content-wrapper{
+        /*absolute positioned div that contains the header text*/
+
+        margin: 1% 1%;
+        max-width: 100%;
+        font-size: 1vw !important;
+        z-index: 13;
+        left: 0;
+        position:relative;
+
+    }
+
+    .lead-text h1{
+        font-size:24px;
+    }
+
+    .center-content{
+        font-size:4vw;
+    }
+
+    .bottom-half-container{
+        margin-top:-50px;
+    }
+
+    .hdPinTargetFront{
+        position: fixed;
+        top: 0;
+        min-height: 100px;
+        margin: 0;
+
+        width: 100%;
+        z-index: 100;
+        box-sizing: border-box;
+        padding: 0 4%;
+        white-space: nowrap;
+        display: flex;
+        align-items: center;
+        color: #fff;
+        font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+        font-size: 10px;
+        -webkit-font-smoothing: antialiased;
+        background-color: transparent;
+
+    }
+
+
+
+}
 
 /*tablets and such*/
 @media only screen and (min-width : 481px) and (max-width: 1080px) {
 
 
-        html{
-            font-size:3vw;
-        }
+    html{
+        font-size:3vw;
+    }
 
-        h2{
-            font-size:3vw;
-        }
-
-
-        .top-wrapper{
-    /*relative sized top wrapper a low z-index to fall behind things*/
+    h2{
+        font-size:3vw;
+    }
 
 
-    width: 100%;
-    min-height:80vw;
-    max-height: 90vw;
-}
-
-        .top-content-wrapper h1{
-            font-size: 3.5vh;
-        }
+    .top-wrapper{
+        /*relative sized top wrapper a low z-index to fall behind things*/
 
 
-        .top-layover::before{
-            position: absolute;
-      content: '';
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom:0;
-    z-index: 10;
-    background-image: linear-gradient(to bottom, black, transparent);
+        width: 100%;
+        min-height:80vw;
+        max-height: 90vw;
+    }
 
-        }
-
-        .top-content-wrapper{
-    /*absolute positioned div that contains the header text*/
-
-    margin: 1% 1%;
-    max-width: 100%;
-    font-size: 3vw;
-    z-index: 13;
-    left: 0;
-    position:relative;
-
-}
-
-  .lead-text{
-      font-size:3em;
-  }
-
-  .center-content{
-      font-size:2vw;
-  }
-
-  .bottom-half-container{
-      margin-top:-50px;
-  }
+    .top-content-wrapper h1{
+        font-size: 3.5vh;
+    }
 
 
+    .top-layover::before{
+        position: absolute;
+        content: '';
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom:0;
+        z-index: 10;
+        background-image: linear-gradient(to bottom, black, transparent);
 
     }
+
+    .top-content-wrapper{
+        /*absolute positioned div that contains the header text*/
+
+        margin: 1% 1%;
+        max-width: 100%;
+        font-size: 3vw;
+        z-index: 13;
+        left: 0;
+        position:relative;
+
+    }
+
+    .lead-text{
+        font-size:3em;
+    }
+
+    .center-content{
+        font-size:2vw;
+    }
+
+    .bottom-half-container{
+        margin-top:-50px;
+    }
+
+
+
+}

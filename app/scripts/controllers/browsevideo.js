@@ -11,9 +11,7 @@ angular.module('sportzflixApp')
   .controller('BrowsevideoCtrl', function (limelightService, $scope, $modal, $location, $interval, auth) {
 
         //make sure user has access granted in profile
-
-
-        auth.getProfile().then(function(p){
+     auth.getProfile().then(function(p){
 
             if(p.user_metadata == undefined){
                 $location.path('/addpayment');
